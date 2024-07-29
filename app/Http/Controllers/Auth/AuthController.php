@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -14,10 +15,16 @@ class AuthController extends Controller
 
     public function auth(Request $request)
     {
-        $this->validate($request,[
-            "email"=>"required|email",
-            "password"=>"required|max:225|min:4"
+        $credentials = $this->validate($request, [
+            "email" => "required|email",
+            "password" => "required|max:225|min:4"
         ]);
-        dd($request->all());
+        if (Auth::attempt($credentials)) {
+            return redirect(route('dashboard.index'));
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
 }

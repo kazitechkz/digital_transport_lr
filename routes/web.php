@@ -23,6 +23,6 @@ Route::group(["prefix" => "auth"],function (){
    Route::post("auth",[AuthController::class,"auth"])->name("auth");
 });
 
-Route::group(["prefix" => "dashboard"],function (){
+Route::group(["prefix" => "dashboard", "middleware" => "auth"],function (){
     Route::get("/",[DashboardController::class,"index"])->name("dashboard.index");
 });
