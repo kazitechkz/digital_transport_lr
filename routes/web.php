@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +21,8 @@ Route::get('/', function () {
 Route::group(["prefix" => "auth"],function (){
    Route::get("login",[AuthController::class,"login"])->name("login");
    Route::post("auth",[AuthController::class,"auth"])->name("auth");
+});
+
+Route::group(["prefix" => "dashboard"],function (){
+    Route::get("/",[DashboardController::class,"index"])->name("dashboard.index");
 });
