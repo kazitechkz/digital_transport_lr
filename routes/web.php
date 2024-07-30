@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ReferenceBook\ReferenceBookController;
+use App\Http\Controllers\ReferenceBook\CoverageTypeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +34,8 @@ Route::group(["prefix" => "dashboard"],function (){
         Route::get('test', function (){return view('statement.index');})->name('statement.test');
     });
     Route::group(["prefix" => "reference-book"],function (){
-
+        Route::get("/",[ReferenceBookController::class,"index"])->name("reference-book.index");
+        Route::resource("/coverage-type",CoverageTypeController::class);
     });
 
 });

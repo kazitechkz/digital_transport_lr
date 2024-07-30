@@ -51,6 +51,19 @@
                     ]
                 }
             ]
+        },
+        {
+            "permission": "dashboard/reference-book*",
+            "name": "Справочник",
+            "link": "reference-book.index",
+            "icon": "fas fa-book",
+            "routes": [
+                {
+                    "name": "Дорожное полотно",
+                    "link": "coverage-type.index"
+                }
+
+            ]
         }
     ]
 }

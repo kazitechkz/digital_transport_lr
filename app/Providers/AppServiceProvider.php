@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\View\Components\ReferenceBook\GreetingCard;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;

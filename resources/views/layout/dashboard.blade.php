@@ -1420,7 +1420,7 @@
 
     <!-- Main Content Wrapper -->
     <main class="main-content w-full pb-8">
-        @yield("section")
+        @yield("content")
     </main>
 </div>
 <!--
