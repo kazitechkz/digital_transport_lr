@@ -9,6 +9,6 @@ class ReferenceBookController extends Controller
 {
     public function index()
     {
-        return view("reference-book.index");
+        return view("dashboard.reference-book.index");
     }
 }

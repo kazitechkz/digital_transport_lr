@@ -13,29 +13,22 @@ class CoverageTypeTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
-        $this->setBulkActionsThAttributes([
-
-            'class' => 'bg-red-500',
-
-            'default' => false
-
-        ]);
     }
 
     public function columns(): array
     {
         return [
             Column::make("Id", "id")
+                ->searchable(),
+            Column::make("Наименование на русском", "title_ru")
+                ->searchable(),
+            Column::make("Наименование на казахском", "title_kk")
+                ->searchable(),
+            Column::make("Наименование на английском", "title_en")
+                ->searchable(),
+            Column::make("Создан", "created_at")
                 ->sortable(),
-            Column::make("Title ru", "title_ru")
-                ->sortable(),
-            Column::make("Title kk", "title_kk")
-                ->sortable(),
-            Column::make("Title en", "title_en")
-                ->sortable(),
-            Column::make("Created at", "created_at")
-                ->sortable(),
-            Column::make("Updated at", "updated_at")
+            Column::make("Обновлен", "updated_at")
                 ->sortable(),
         ];
     }

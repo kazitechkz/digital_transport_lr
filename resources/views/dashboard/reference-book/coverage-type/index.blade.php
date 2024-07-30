@@ -15,8 +15,8 @@
                         Список Дорожного Покрытия
                     </h2>
                 </div>
-                <div class="card mt-3">
-                    <div class="is-scrollbar-hidden min-w-full overflow-x-auto">
+                <div class="card mt-3 p-3">
+                    <div class="is-scrollbar-hidden min-w-full">
                         <livewire:coverage-type.coverage-type-table/>
                     </div>
                 </div>

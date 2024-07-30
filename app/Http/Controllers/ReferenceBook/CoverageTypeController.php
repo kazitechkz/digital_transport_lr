@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\ReferenceBook;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CoverageType\CoverageTypeCreateRequest;
+use App\Models\CoverageType;
 use Illuminate\Http\Request;
 
 class CoverageTypeController extends Controller
@@ -12,7 +14,7 @@ class CoverageTypeController extends Controller
      */
     public function index()
     {
-        return view("reference-book.coverage-type.index");
+        return view("dashboard.reference-book.coverage-type.index");
     }
 
     /**
@@ -20,15 +22,21 @@ class CoverageTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view("dashboard.reference-book.coverage-type.create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CoverageTypeCreateRequest $request)
     {
-        //
+        try {
+            CoverageType::add($request->all());
+            return redirect()->back();
+        }
+        catch (\Exception $exception){
+            return redirect()->back();
+        }
     }
 
     /**

@@ -6,20 +6,21 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class CoverageType
- * 
+ *
  * @property int $id
  * @property string $title_ru
  * @property string|null $title_kk
  * @property string|null $title_en
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|IntersectionAndJunctionOnRoadway[] $intersection_and_junction_on_roadways
  * @property Collection|LengthOfTheRoadSurface[] $length_of_the_road_surfaces
  * @property Collection|Roadway[] $roadways
@@ -29,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CoverageType extends Model
 {
+    use CRUD;
 	protected $table = 'coverage_types';
 
 	protected $fillable = [

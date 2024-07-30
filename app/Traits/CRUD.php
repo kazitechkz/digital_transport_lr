@@ -13,14 +13,14 @@ trait CRUD
         });
 
         self::created(function($model){
-            flush()->success('Успешно добавлен');
+            toastr()->success('Успешно добавлен');
         });
 
         self::updating(function($model){
         });
 
         self::updated(function($model){
-            flush()->info('Успешно изменены данные!');
+            toastr()->info('Успешно изменены данные!');
         });
 
         self::deleting(function($model){
@@ -28,7 +28,7 @@ trait CRUD
         });
 
         self::deleted(function($model){
-            flush()->error('Удалено успешно');
+            toastr()->error('Удалено успешно');
         });
     }
 
