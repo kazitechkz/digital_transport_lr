@@ -17,7 +17,7 @@
 
     <!-- Javascript Assets -->
     <script src="{{asset("assets/js/app.js")}}" defer></script>
-
+    <script src="https://kit.fontawesome.com/5c3a1bdab7.js" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

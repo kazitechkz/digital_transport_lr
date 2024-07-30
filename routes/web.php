@@ -26,10 +26,10 @@ Route::group(["prefix" => "auth"],function (){
 Route::group(["prefix" => "dashboard"],function (){
     Route::get("/",[DashboardController::class,"index"])->name("dashboard.index");
     Route::group(["prefix" => "user"],function (){
-
+        Route::get('test', function (){return view('user.index');})->name('user.test');
     });
     Route::group(["prefix" => "statement"],function (){
-
+        Route::get('test', function (){return view('statement.index');})->name('statement.test');
     });
     Route::group(["prefix" => "reference-book"],function (){
 
