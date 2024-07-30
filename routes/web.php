@@ -23,6 +23,16 @@ Route::group(["prefix" => "auth"],function (){
    Route::post("auth",[AuthController::class,"auth"])->name("auth");
 });
 
-Route::group(["prefix" => "dashboard", "middleware" => "auth"],function (){
+Route::group(["prefix" => "dashboard"],function (){
     Route::get("/",[DashboardController::class,"index"])->name("dashboard.index");
+    Route::group(["prefix" => "user"],function (){
+
+    });
+    Route::group(["prefix" => "statement"],function (){
+
+    });
+    Route::group(["prefix" => "reference-book"],function (){
+
+    });
+
 });

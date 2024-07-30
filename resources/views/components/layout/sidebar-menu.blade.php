@@ -344,7 +344,7 @@
             </div>
         </div>
     </div>
-
+    @if(request()->is('dashboard/statement*'))
     <!-- Sidebar Panel -->
     <div class="sidebar-panel">
         <div
@@ -381,6 +381,7 @@
             </div>
 
             <!-- Sidebar Panel Body -->
+
             <div
                 x-data="{expandedItem:null}"
                 class="h-[calc(100%-4.5rem)] overflow-x-hidden pb-6"
@@ -398,6 +399,8 @@
                     <x-shared.default-sidebar-menu :name="'Def'" :link="'dashboard.index'"/>
                 </ul>
             </div>
+
         </div>
     </div>
+    @endif
 </div>
