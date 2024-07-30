@@ -83,8 +83,19 @@
                 {
                     "name": "Дорожное полотно",
                     "link": "coverage-type.index"
+                },
+                {
+                    "name": "Сторона Дорожного полотна",
+                    "link": "side.index"
+                },
+                {
+                    "name": "Категория проезжей части",
+                    "link": "category-of-highway.index"
+                },
+                {
+                    "name": "Типы колодцев",
+                    "link": "well-type.index"
                 }
-
             ]
         }
     ]

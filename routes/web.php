@@ -8,6 +8,9 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReferenceBook\ReferenceBookController;
 use App\Http\Controllers\ReferenceBook\CoverageTypeController;
+use App\Http\Controllers\ReferenceBook\SideController;
+use App\Http\Controllers\ReferenceBook\CategoryOfHighwayController;
+use App\Http\Controllers\ReferenceBook\WellTypeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +47,9 @@ Route::group(["prefix" => "dashboard"],function (){
     Route::group(["prefix" => "reference-book"],function (){
         Route::get("/",[ReferenceBookController::class,"index"])->name("reference-book.index");
         Route::resource("/coverage-type",CoverageTypeController::class);
+        Route::resource("/side",SideController::class);
+        Route::resource("/category-of-highway",CategoryOfHighwayController::class);
+        Route::resource("/well-type",WellTypeController::class);
     });
 
 });

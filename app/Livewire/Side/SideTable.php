@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Livewire\CoverageType;
+namespace App\Livewire\Side;
 
-use App\Models\Category;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\CoverageType;
+use App\Models\Side;
 
-class CoverageTypeTable extends DataTableComponent
+class SideTable extends DataTableComponent
 {
-    protected $model = CoverageType::class;
+    protected $model = Side::class;
 
     public function configure(): void
     {
@@ -19,7 +18,7 @@ class CoverageTypeTable extends DataTableComponent
         ]);
         $this->setPrimaryKey('id')
             ->setTableRowUrl(function($row) {
-                return route('coverage-type.edit', $row);
+                return route('side.edit', $row);
             });
     }
 
@@ -34,7 +33,7 @@ class CoverageTypeTable extends DataTableComponent
     {
         $model = $this->getSelected();
         foreach ($model as $key => $value) {
-            $model_one = CoverageType::find($value);
+            $model_one = Side::find($value);
             $model_one?->delete();
         }
         $this->clearSelected();

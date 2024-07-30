@@ -3,18 +3,18 @@
     <div class="grid grid-cols-12 p-3">
         <div class="col-span-12">
             <x-breadcrumbs-component
-                :header-title="'Создать дорожное полотно'"
-                :routes="['coverage-type.index']"
-                :breadcrumbs="['Список дорожного полотна','Создать дорожное полотно']"
+                :header-title="'Изменить Сторону дорожного полотна:' . $side->title_ru"
+                :routes="['side.index']"
+                :breadcrumbs="['Список Сторон Дорожного полотна','Изменить сторону дорожного полотна']"
             />
         </div>
         <div class="col-span-12">
             <div class="card p-4 sm:p-5">
                 <p class="text-base font-medium text-slate-700 dark:text-navy-100">
-                    Создать дорожное полотно
+                    Изменить дорожное полотно {{$side->title_ru}}
                 </p>
                 <div class="mt-4 space-y-4">
-                <livewire:coverage-type.create/>
+                    <livewire:side.edit :side="$side"/>
                 </div>
             </div>
         </div>

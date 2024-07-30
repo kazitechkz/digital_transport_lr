@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\ReferenceBook;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CoverageType\CoverageTypeCreateRequest;
-use App\Http\Requests\CoverageType\CoverageTypeUpdateRequest;
-use App\Models\CoverageType;
+use App\Http\Requests\CategoryOfHighway\CategoryOfHighwayCreateRequest;
+use App\Http\Requests\CategoryOfHighway\CategoryOfHighwayUpdateRequest;
+use App\Models\CategoryOfHighway;
 use Illuminate\Http\Request;
 
-class CoverageTypeController extends Controller
+class CategoryOfHighwayController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view("dashboard.reference-book.coverage-type.index");
+        return view("dashboard.reference-book.category-of-highway.index");
     }
 
     /**
@@ -23,16 +23,16 @@ class CoverageTypeController extends Controller
      */
     public function create()
     {
-        return view("dashboard.reference-book.coverage-type.create");
+        return view("dashboard.reference-book.category-of-highway.create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CoverageTypeCreateRequest $request)
+    public function store(CategoryOfHighwayCreateRequest $request)
     {
         try {
-            CoverageType::add($request->all());
+            CategoryOfHighway::add($request->all());
             return redirect()->back();
         }
         catch (\Exception $exception){
@@ -54,9 +54,9 @@ class CoverageTypeController extends Controller
     public function edit(string $id)
     {
         try {
-            $coverageType = CoverageType::find($id);
-            if($coverageType){
-                return  view("dashboard.reference-book.coverage-type.edit",compact("coverageType"));
+            $categoryOfHighway = CategoryOfHighway::find($id);
+            if($categoryOfHighway){
+                return  view("dashboard.reference-book.category-of-highway.edit",compact("categoryOfHighway"));
             }
             toastr()->warning("Не найдено");
             return redirect()->back();
@@ -69,13 +69,13 @@ class CoverageTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CoverageTypeUpdateRequest $request, string $id)
+    public function update(CategoryOfHighwayUpdateRequest $request, string $id)
     {
         try {
-            $coverageType = CoverageType::find($id);
-            if($coverageType){
-                $coverageType->edit($request->all());
-                return redirect()->route("coverage-type.index");
+            $categoryOfHighway = CategoryOfHighway::find($id);
+            if($categoryOfHighway){
+                $categoryOfHighway->edit($request->all());
+                return redirect()->route("category-of-highway.index");
             }
             toastr()->warning("Не найдено");
             return redirect()->back();
