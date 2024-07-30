@@ -25,10 +25,10 @@ class RoadMarkingUpdateRequest extends FormRequest
     {
         return [
             'title_ru' => 'required|string',
-            'title_kk' => 'nullable|string',
+            'title_kk' => 'required|string',
             'title_en' => 'nullable|string',
             'line_of_number' => 'required|string',
-            'normative_document' => 'nullable|string',
+            'normative_document' => 'required|string',
         ];
     }
 }
