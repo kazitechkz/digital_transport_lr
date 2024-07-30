@@ -11,6 +11,12 @@ use App\Http\Controllers\ReferenceBook\CoverageTypeController;
 use App\Http\Controllers\ReferenceBook\SideController;
 use App\Http\Controllers\ReferenceBook\CategoryOfHighwayController;
 use App\Http\Controllers\ReferenceBook\WellTypeController;
+use App\Http\Controllers\ReferenceBook\RoadMarkingController;
+use App\Http\Controllers\ReferenceBook\ArchitecturalFormController;
+use App\Http\Controllers\ReferenceBook\RoadMarkingMaterialController;
+use App\Http\Controllers\ReferenceBook\TypeTrafficLightController;
+use App\Http\Controllers\ReferenceBook\LandingTypeController;
+use App\Http\Controllers\ReferenceBook\LightingSupportTypeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +56,12 @@ Route::group(["prefix" => "dashboard"],function (){
         Route::resource("/side",SideController::class);
         Route::resource("/category-of-highway",CategoryOfHighwayController::class);
         Route::resource("/well-type",WellTypeController::class);
+        Route::resource("/road-marking",RoadMarkingController::class);
+        Route::resource("/architectural-form",ArchitecturalFormController::class);
+        Route::resource("/road-marking-material",RoadMarkingMaterialController::class);
+        Route::resource("/type-traffic-light",TypeTrafficLightController::class);
+        Route::resource("/landing-type",LandingTypeController::class);
+        Route::resource("/lighting-support-type",LightingSupportTypeController::class);
     });
 
 });

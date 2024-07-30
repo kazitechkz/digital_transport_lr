@@ -6,13 +6,14 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class RoadMarking
- * 
+ *
  * @property int $id
  * @property string $title_ru
  * @property string|null $title_kk
@@ -21,13 +22,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $normative_document
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|InformationOfRoadMarking[] $information_of_road_markings
  *
  * @package App\Models
  */
 class RoadMarking extends Model
 {
+    use CRUD;
 	protected $table = 'road_markings';
 
 	protected $fillable = [

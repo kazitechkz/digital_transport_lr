@@ -6,26 +6,28 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class LandingType
- * 
+ *
  * @property int $id
  * @property string $title_ru
  * @property string|null $title_kk
  * @property string|null $title_en
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|LandingTypeOnRoadway[] $landing_type_on_roadways
  *
  * @package App\Models
  */
 class LandingType extends Model
 {
+    use CRUD;
 	protected $table = 'landing_types';
 
 	protected $fillable = [

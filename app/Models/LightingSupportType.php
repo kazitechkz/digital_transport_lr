@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class LightingSupportType
- * 
+ *
  * @property int $id
  * @property string $title_ru
  * @property string|null $title_kk
@@ -23,6 +24,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class LightingSupportType extends Model
 {
+    use CRUD;
+
 	protected $table = 'lighting_support_types';
 
 	protected $fillable = [

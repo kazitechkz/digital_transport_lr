@@ -95,6 +95,30 @@
                 {
                     "name": "Типы колодцев",
                     "link": "well-type.index"
+                },
+                {
+                    "name": "Дорожные разметки",
+                    "link": "road-marking.index"
+                },
+                {
+                    "name": "Материалы Дорожной Разметки",
+                    "link": "road-marking-material.index"
+                },
+                {
+                    "name": "Архитектурные формы",
+                    "link": "architectural-form.index"
+                },
+                {
+                    "name": "Тип светофорных установок",
+                    "link": "type-traffic-light.index"
+                },
+                {
+                    "name": "Тип посадок",
+                    "link": "landing-type.index"
+                },
+                {
+                    "name": "Тип опор",
+                    "link": "lighting-support-type.index"
                 }
             ]
         }
