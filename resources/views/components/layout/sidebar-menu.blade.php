@@ -61,7 +61,7 @@
                     >
                         <img
                             class="rounded-full"
-                            src="images/200x200.png"
+                            src="{{asset('assets/images/200x200.png')}}"
                             alt="avatar"
                         />
                         <span
@@ -83,7 +83,7 @@
                                 <div class="avatar h-14 w-14">
                                     <img
                                         class="rounded-full"
-                                        src="images/200x200.png"
+                                        src="{{asset('assets/images/200x200.png')}}"
                                         alt="avatar"
                                     />
                                 </div>

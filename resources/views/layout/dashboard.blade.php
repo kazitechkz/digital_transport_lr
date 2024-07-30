@@ -10,13 +10,11 @@
     />
 
     <title>Digital Road Passport - Цифровая паспортизация дорог</title>
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" type="image/png" href="{{asset('favicon.ico')}}" />
 
-    <!-- CSS Assets -->
-    <link rel="stylesheet" href="{{asset("assets/css/app.css")}}" />
 
     <!-- Javascript Assets -->
-    <script src="{{asset("assets/js/app.js")}}" defer></script>
+
     <script src="https://kit.fontawesome.com/5c3a1bdab7.js" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,8 +23,9 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet"
     />
-    @vite('resources/css/app.css')
     @livewireStyles
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <script>
         /**
          * THIS SCRIPT REQUIRED FOR PREVENT FLICKERING IN SOME BROWSERS
@@ -41,7 +40,7 @@
 
 </head>
 
-<body x-data class="is-header-blur" x-bind="$store.global.documentBody">
+<body x-data class="is-header-blur is-sidebar-open" x-bind="$store.global.documentBody">
 <!-- App preloader-->
 <div
     class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900"
@@ -1379,7 +1378,7 @@
                                         <div class="mt-8 pb-8 text-center">
                                             <img
                                                 class="mx-auto w-36"
-                                                src="images/illustrations/empty-girl-box.svg"
+                                                src="{{asset('assets/images/illustrations/empty-girl-box.svg')}}"
                                                 alt="image"
                                             />
                                             <div class="mt-5">
@@ -1435,9 +1434,9 @@
         @see https://alpinejs.dev/directives/teleport
       -->
 <div id="x-teleport-target"></div>
-@livewireScripts
+@livewireScriptConfig
 <script>
-    window.addEventListener("DOMContentLoaded", () => Alpine.start());
+    window.addEventListener("DOMContentLoaded", () => Livewire.start());
 </script>
 </body>
 </html>

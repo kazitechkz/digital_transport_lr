@@ -1,7 +1,29 @@
 {
     "routes": [
         {
-            "permission": "dashboard/user/*",
+            "permission": "dashboard/setting*",
+            "name": "Системные",
+            "link": "setting.index",
+            "icon": "fa-solid fa-gear",
+            "routes": [
+                {
+                    "name": "Роли и права",
+                    "elementId": "role_and_permission",
+                    "routes": [
+                        {
+                            "name": "Роли",
+                            "link": "role.index"
+                        },
+                        {
+                            "name": "Права",
+                            "link": "permission.index"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "permission": "dashboard/user*",
             "name": "Users",
             "link": "user.test",
             "icon": "fa-regular fa-user",
@@ -27,7 +49,7 @@
             ]
         },
         {
-            "permission": "dashboard/statement/*",
+            "permission": "dashboard/statement*",
             "name": "Statement",
             "link": "statement.test",
             "icon": "fa-brands fa-usps",
