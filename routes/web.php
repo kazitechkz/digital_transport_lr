@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SettingController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ReferenceBook\ReferenceBookController;
-use App\Http\Controllers\ReferenceBook\CoverageTypeController;
-use App\Http\Controllers\ReferenceBook\SideController;
 use App\Http\Controllers\ReferenceBook\CategoryOfHighwayController;
+use App\Http\Controllers\ReferenceBook\CoverageTypeController;
+use App\Http\Controllers\ReferenceBook\ReferenceBookController;
+use App\Http\Controllers\ReferenceBook\SideController;
 use App\Http\Controllers\ReferenceBook\WellTypeController;
+use App\Http\Controllers\Setting\PermissionController;
+use App\Http\Controllers\Setting\RoleController;
+use App\Http\Controllers\SettingController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

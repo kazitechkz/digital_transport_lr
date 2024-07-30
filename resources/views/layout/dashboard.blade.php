@@ -25,7 +25,7 @@
     />
     @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    @stack('css')
     <script>
         /**
          * THIS SCRIPT REQUIRED FOR PREVENT FLICKERING IN SOME BROWSERS
@@ -1438,5 +1438,6 @@
 <script>
     window.addEventListener("DOMContentLoaded", () => Livewire.start());
 </script>
+@stack('js')
 </body>
 </html>
