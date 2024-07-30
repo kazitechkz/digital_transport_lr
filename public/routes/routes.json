@@ -1,0 +1,56 @@
+{
+    "routes": [
+        {
+            "permission": "dashboard/user/*",
+            "name": "Users",
+            "link": "user.test",
+            "icon": "fa-regular fa-user",
+            "routes": [
+                {
+                    "name": "User Index",
+                    "link": "user.test"
+                },
+                {
+                    "name": "user Index 2",
+                    "elementId": "dashboard.user.index2",
+                    "routes": [
+                        {
+                            "name": "Test 1",
+                            "link": "user.test"
+                        },
+                        {
+                            "name": "Test 2",
+                            "link": "user.test"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "permission": "dashboard/statement/*",
+            "name": "Statement",
+            "link": "statement.test",
+            "icon": "fa-brands fa-usps",
+            "routes": [
+                {
+                    "name": "Statement Index",
+                    "link": "statement.test"
+                },
+                {
+                    "name": "Statement Index 2",
+                    "elementId": "dashboard.statement.index2",
+                    "routes": [
+                        {
+                            "name": "Test 1",
+                            "link": "statement.test"
+                        },
+                        {
+                            "name": "Test 2",
+                            "link": "statement.test"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

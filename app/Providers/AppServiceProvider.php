@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         // Используем composer для определенного представления
         View::composer('components.layout.sidebar-menu', function ($view) {
             // Получение содержимого JSON файла
-            $routesJson = Storage::get('routes.json');
+            $routesJson = Storage::disk('public')->get('routes.json');
 
             // Преобразование JSON в массив
             $routes = json_decode($routesJson, true);
