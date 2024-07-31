@@ -25,11 +25,10 @@ class RoadSignCreateRequest extends FormRequest
     {
         return [
             'title_ru' => 'required|string',
-            'title_kk' => 'nullable|string',
+            'title_kk' => 'required|string',
             'title_en' => 'nullable|string',
             'normative_act' => 'required|string',
             'sign_number' => 'required|string',
-            'is_active' => 'required|boolean',
         ];
     }
 }
