@@ -21,12 +21,6 @@ use App\Http\Controllers\User\DepartmentController;
 use App\Http\Controllers\User\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ReferenceBook\RoadMarkingController;
-use App\Http\Controllers\ReferenceBook\ArchitecturalFormController;
-use App\Http\Controllers\ReferenceBook\RoadMarkingMaterialController;
-use App\Http\Controllers\ReferenceBook\TypeTrafficLightController;
-use App\Http\Controllers\ReferenceBook\LandingTypeController;
-use App\Http\Controllers\ReferenceBook\LightingSupportTypeController;
 use App\Http\Controllers\ReferenceBook\UnitController;
 use App\Http\Controllers\ReferenceBook\FencingAndGuideTypeController;
 use App\Http\Controllers\ReferenceBook\SideStoneTypeController;
