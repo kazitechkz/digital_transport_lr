@@ -3,7 +3,7 @@
         {
             "permission": "dashboard/setting*",
             "name": "Системные",
-            "link": "setting.index",
+            "link": "setting.dashboard",
             "icon": "fa-solid fa-gear",
             "routes": [
                 {
@@ -25,26 +25,16 @@
         {
             "permission": "dashboard/user*",
             "name": "Users",
-            "link": "user.test",
+            "link": "user.dashboard",
             "icon": "fa-regular fa-user",
             "routes": [
                 {
-                    "name": "User Index",
-                    "link": "user.test"
+                    "name": "Департаменты",
+                    "link": "department.index"
                 },
                 {
-                    "name": "user Index 2",
-                    "elementId": "dashboard.user.index2",
-                    "routes": [
-                        {
-                            "name": "Test 1",
-                            "link": "user.test"
-                        },
-                        {
-                            "name": "Test 2",
-                            "link": "user.test"
-                        }
-                    ]
+                    "name": "Пользователи",
+                    "link": "employee.index"
                 }
             ]
         },
