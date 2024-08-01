@@ -6,13 +6,14 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class RoadSign
- * 
+ *
  * @property int $id
  * @property string $title_ru
  * @property string|null $title_kk
@@ -22,13 +23,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool $is_active
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|RoadSignOnRoadway[] $road_sign_on_roadways
  *
  * @package App\Models
  */
 class RoadSign extends Model
 {
+    use CRUD;
 	protected $table = 'road_signs';
 
 	protected $casts = [

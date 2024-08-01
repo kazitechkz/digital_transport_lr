@@ -109,6 +109,58 @@
                 {
                     "name": "Тип опор",
                     "link": "lighting-support-type.index"
+                },
+                {
+                    "name": "Единицы измерения",
+                    "link": "unit.index"
+                },
+                {
+                    "name": "Тип устройств ограждающих и направляющих",
+                    "link": "fencing-and-guide-type.index"
+                },
+                {
+                    "name": "Тип бортовых камней",
+                    "link": "side-stone-type.index"
+                },
+                {
+                    "name": "Марка бортовых камней",
+                    "link": "side-stone-stamp.index"
+                },
+                {
+                    "name": "Вид пешеходного перехода",
+                    "link": "pedestrian-crossing-type.index"
+                },
+                {
+                    "name": "Позиция пешеходного перехода",
+                    "link": "pedestrian-crossing-position.index"
+                },
+                {
+                    "name": "Вид шлагбаума",
+                    "link": "barrier-type.index"
+                },
+                {
+                    "name": "Состояние настила",
+                    "link": "flooring-condition.index"
+                },
+                {
+                    "name": "Состояние посадки",
+                    "link": "landscaping-condition.index"
+                },
+                {
+                    "name": "Типы коммуникаций",
+                    "link": "communication-type.index"
+                },
+                {
+                    "name": "Дорожный Знак",
+                    "link": "road-sign.index"
+                },
+                {
+                    "name": "Состояние Дорожных Знаков",
+                    "link": "road-sign-condition.index"
+                },
+                {
+                    "name": "Материалы Дорожных Знаков",
+                    "link": "road-sign-material.index"
                 }
             ]
         }

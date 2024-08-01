@@ -21,6 +21,25 @@ use App\Http\Controllers\User\DepartmentController;
 use App\Http\Controllers\User\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ReferenceBook\RoadMarkingController;
+use App\Http\Controllers\ReferenceBook\ArchitecturalFormController;
+use App\Http\Controllers\ReferenceBook\RoadMarkingMaterialController;
+use App\Http\Controllers\ReferenceBook\TypeTrafficLightController;
+use App\Http\Controllers\ReferenceBook\LandingTypeController;
+use App\Http\Controllers\ReferenceBook\LightingSupportTypeController;
+use App\Http\Controllers\ReferenceBook\UnitController;
+use App\Http\Controllers\ReferenceBook\FencingAndGuideTypeController;
+use App\Http\Controllers\ReferenceBook\SideStoneTypeController;
+use App\Http\Controllers\ReferenceBook\SideStoneStampController;
+use App\Http\Controllers\ReferenceBook\PedestrianCrossingTypeController;
+use App\Http\Controllers\ReferenceBook\PedestrianCrossingPositionController;
+use App\Http\Controllers\ReferenceBook\BarrierTypeController;
+use App\Http\Controllers\ReferenceBook\FlooringConditionController;
+use App\Http\Controllers\ReferenceBook\LandscapingConditionController;
+use App\Http\Controllers\ReferenceBook\CommunicationTypeController;
+use App\Http\Controllers\ReferenceBook\RoadSignController;
+use App\Http\Controllers\ReferenceBook\RoadSignConditionController;
+use App\Http\Controllers\ReferenceBook\RoadSignMaterialController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,6 +87,20 @@ Route::group(["prefix" => "dashboard"],function () {
         Route::resource("/type-traffic-light",TypeTrafficLightController::class);
         Route::resource("/landing-type",LandingTypeController::class);
         Route::resource("/lighting-support-type",LightingSupportTypeController::class);
+        Route::resource("/unit",UnitController::class);
+        Route::resource("/fencing-and-guide-type",FencingAndGuideTypeController::class);
+        Route::resource("/side-stone-type",SideStoneTypeController::class);
+        Route::resource("/side-stone-stamp",SideStoneStampController::class);
+        Route::resource("/pedestrian-crossing-type",PedestrianCrossingTypeController::class);
+        Route::resource("/pedestrian-crossing-position",PedestrianCrossingPositionController::class);
+        Route::resource("/barrier-type",BarrierTypeController::class);
+        Route::resource("/flooring-condition",FlooringConditionController::class);
+        Route::resource("/landscaping-condition",LandscapingConditionController::class);
+        Route::resource("/communication-type",CommunicationTypeController::class);
+        Route::resource("/road-sign",RoadSignController::class);
+        Route::resource("/road-sign-condition",RoadSignConditionController::class);
+        Route::resource("/road-sign-material",RoadSignMaterialController::class);
+
     });
 
 });

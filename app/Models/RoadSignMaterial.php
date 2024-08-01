@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class RoadSignMaterial
- * 
+ *
  * @property int $id
  * @property string $title_ru
  * @property string|null $title_kk
@@ -23,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class RoadSignMaterial extends Model
 {
+    use CRUD;
 	protected $table = 'road_sign_materials';
 
 	protected $fillable = [
