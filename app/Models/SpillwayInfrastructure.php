@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class SpillwayInfrastructure
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $on_axis_m
@@ -25,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $well_type_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Side $side
  * @property Street $street
  * @property WellsType $wells_type
@@ -34,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SpillwayInfrastructure extends Model
 {
+    use CRUD;
 	protected $table = 'spillway_infrastructures';
 
 	protected $casts = [

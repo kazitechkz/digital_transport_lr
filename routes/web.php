@@ -3,37 +3,41 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReferenceBook\ArchitecturalFormController;
+use App\Http\Controllers\ReferenceBook\BarrierTypeController;
 use App\Http\Controllers\ReferenceBook\CategoryOfHighwayController;
+use App\Http\Controllers\ReferenceBook\CommunicationTypeController;
 use App\Http\Controllers\ReferenceBook\CoverageTypeController;
+use App\Http\Controllers\ReferenceBook\FencingAndGuideTypeController;
+use App\Http\Controllers\ReferenceBook\FlooringConditionController;
 use App\Http\Controllers\ReferenceBook\LandingTypeController;
+use App\Http\Controllers\ReferenceBook\LandscapingConditionController;
 use App\Http\Controllers\ReferenceBook\LightingSupportTypeController;
+use App\Http\Controllers\ReferenceBook\PedestrianCrossingPositionController;
+use App\Http\Controllers\ReferenceBook\PedestrianCrossingTypeController;
 use App\Http\Controllers\ReferenceBook\ReferenceBookController;
 use App\Http\Controllers\ReferenceBook\RoadMarkingController;
 use App\Http\Controllers\ReferenceBook\RoadMarkingMaterialController;
+use App\Http\Controllers\ReferenceBook\RoadSignConditionController;
+use App\Http\Controllers\ReferenceBook\RoadSignController;
+use App\Http\Controllers\ReferenceBook\RoadSignMaterialController;
 use App\Http\Controllers\ReferenceBook\SideController;
+use App\Http\Controllers\ReferenceBook\SideStoneStampController;
+use App\Http\Controllers\ReferenceBook\SideStoneTypeController;
 use App\Http\Controllers\ReferenceBook\TypeTrafficLightController;
+use App\Http\Controllers\ReferenceBook\UnitController;
 use App\Http\Controllers\ReferenceBook\WellTypeController;
+use App\Http\Controllers\Setting\DashboardController as SettingDashboardController;
 use App\Http\Controllers\Setting\PermissionController;
 use App\Http\Controllers\Setting\RoleController;
-use App\Http\Controllers\Setting\DashboardController as SettingDashboardController;
+use App\Http\Controllers\Statement\DashboardController as StatementDashboardController;
+use App\Http\Controllers\Statement\LengthOfTheRoadSurfaceController;
+use App\Http\Controllers\Statement\RoadwayController;
+use App\Http\Controllers\Statement\SpillwayInfrastructureController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\DepartmentController;
 use App\Http\Controllers\User\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ReferenceBook\UnitController;
-use App\Http\Controllers\ReferenceBook\FencingAndGuideTypeController;
-use App\Http\Controllers\ReferenceBook\SideStoneTypeController;
-use App\Http\Controllers\ReferenceBook\SideStoneStampController;
-use App\Http\Controllers\ReferenceBook\PedestrianCrossingTypeController;
-use App\Http\Controllers\ReferenceBook\PedestrianCrossingPositionController;
-use App\Http\Controllers\ReferenceBook\BarrierTypeController;
-use App\Http\Controllers\ReferenceBook\FlooringConditionController;
-use App\Http\Controllers\ReferenceBook\LandscapingConditionController;
-use App\Http\Controllers\ReferenceBook\CommunicationTypeController;
-use App\Http\Controllers\ReferenceBook\RoadSignController;
-use App\Http\Controllers\ReferenceBook\RoadSignConditionController;
-use App\Http\Controllers\ReferenceBook\RoadSignMaterialController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,7 +71,10 @@ Route::group(["prefix" => "dashboard"],function () {
         Route::resource('/department', DepartmentController::class);
     });
     Route::group(["prefix" => "statement"],function () {
-        Route::get('test', function (){return view('dashboard.statement.index');})->name('statement.test');
+        Route::get('/', [StatementDashboardController::class, 'index'])->name('statement.dashboard');
+        Route::resource('/length-of-the-road-surface', LengthOfTheRoadSurfaceController::class);
+        Route::resource('/roadway', RoadwayController::class);
+        Route::resource('/spillway-infrastructure', SpillwayInfrastructureController::class);
     });
     Route::group(["prefix" => "reference-book"],function () {
         Route::get("/",[ReferenceBookController::class,"index"])->name("reference-book.index");
@@ -98,3 +105,7 @@ Route::group(["prefix" => "dashboard"],function () {
     });
 
 });
+
+Route::get('not-found', function () {
+    return view('not-found');
+})->name('not-found');

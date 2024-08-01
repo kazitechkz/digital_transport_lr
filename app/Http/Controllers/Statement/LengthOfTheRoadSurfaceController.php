@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Setting;
+namespace App\Http\Controllers\Statement;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LengthOfTheRoadSurface\LengthOfTheRoadSurfaceCreateRequest;
+use App\Http\Requests\LengthOfTheRoadSurface\LengthOfTheRoadSurfaceUpdateRequest;
+use App\Models\CoverageType;
+use App\Models\LengthOfTheRoadSurface;
+use App\Models\Street;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
-class RoleController extends Controller
+class LengthOfTheRoadSurfaceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +18,7 @@ class RoleController extends Controller
     public function index()
     {
         try {
-            $roles = Role::all();
-            return view('dashboard.setting.role.index', compact('roles'));
+            return view('dashboard.statement.length-of-the-road-surface.index');
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
             return redirect()->back();
@@ -29,7 +31,9 @@ class RoleController extends Controller
     public function create()
     {
         try {
-            return view('dashboard.setting.role.create');
+            $streets = Street::all();
+            $coverages = CoverageType::all();
+            return view('dashboard.statement.length-of-the-road-surface.create', compact('streets', 'coverages'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
             return redirect()->back();
@@ -39,12 +43,11 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(LengthOfTheRoadSurfaceCreateRequest $request)
     {
         try {
-            $this->validate($request, ['name' => 'required']);
-            Role::create(['name' => $request['name']]);
-            return redirect(route('role.index'));
+            LengthOfTheRoadSurface::add($request->all());
+            return redirect(route('length-of-the-road-surface.index'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
             return redirect()->back();
@@ -56,13 +59,7 @@ class RoleController extends Controller
      */
     public function show(string $id)
     {
-        try {
-            $role = Role::findOrFail($id);
-            return view('dashboard.setting.role.show', compact('role'));
-        } catch (\Exception $exception){
-            toastr()->error($exception->getMessage(),"Error");
-            return redirect()->back();
-        }
+        //
     }
 
     /**
@@ -71,8 +68,10 @@ class RoleController extends Controller
     public function edit(string $id)
     {
         try {
-            $role = Role::findOrFail($id);
-            return view('dashboard.setting.role.edit', compact('role'));
+            $lengthOfTheRoadSurface = LengthOfTheRoadSurface::findOrFail($id);
+            $streets = Street::all();
+            $coverages = CoverageType::all();
+            return view('dashboard.statement.length-of-the-road-surface.edit', compact('lengthOfTheRoadSurface', 'streets', 'coverages'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
             return redirect()->back();
@@ -82,14 +81,12 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(LengthOfTheRoadSurfaceUpdateRequest $request, string $id)
     {
         try {
-            $role = Role::findOrFail($id);
-            $this->validate($request, ['name' => 'required']);
-            $role->name = $request['name'];
-            $role->save();
-            return redirect(route('role.index'));
+            $lengthOfTheRoadSurface = LengthOfTheRoadSurface::findOrFail($id);
+            $lengthOfTheRoadSurface->edit($request->all());
+            return redirect(route('length-of-the-road-surface.index'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
             return redirect()->back();

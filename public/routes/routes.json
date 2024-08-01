@@ -40,13 +40,21 @@
         },
         {
             "permission": "dashboard/statement*",
-            "name": "Statement",
-            "link": "statement.test",
+            "name": "Ведомость",
+            "link": "statement.dashboard",
             "icon": "fa-brands fa-usps",
             "routes": [
                 {
-                    "name": "Statement Index",
-                    "link": "statement.test"
+                    "name": "Протяженность",
+                    "link": "length-of-the-road-surface.index"
+                },
+                {
+                    "name": "Проезжая часть",
+                    "link": "roadway.index"
+                },
+                {
+                    "name": "Люки и решетки колодцев",
+                    "link": "spillway-infrastructure.index"
                 },
                 {
                     "name": "Statement Index 2",
@@ -54,11 +62,11 @@
                     "routes": [
                         {
                             "name": "Test 1",
-                            "link": "statement.test"
+                            "link": "statement.dashboard"
                         },
                         {
                             "name": "Test 2",
-                            "link": "statement.test"
+                            "link": "statement.dashboard"
                         }
                     ]
                 }

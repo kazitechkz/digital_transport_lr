@@ -17,7 +17,7 @@ class DepartmentController extends Controller
             return view('dashboard.user.department.index');
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -30,7 +30,7 @@ class DepartmentController extends Controller
             return view('dashboard.user.department.create');
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -45,7 +45,7 @@ class DepartmentController extends Controller
             return redirect(route('department.index'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -67,7 +67,7 @@ class DepartmentController extends Controller
             return view('dashboard.user.department.edit', compact('department'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -83,7 +83,7 @@ class DepartmentController extends Controller
             return redirect(route('department.index'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
