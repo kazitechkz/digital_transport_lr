@@ -36,6 +36,7 @@ use App\Http\Controllers\Statement\SpillwayInfrastructureController;
 use App\Http\Controllers\Statement\LongitudinalProfileOfTheRoadController;
 use App\Http\Controllers\Statement\RailwayTransferOnRoadwayController;
 use App\Http\Controllers\Statement\WidthRoadwayOnHighwayController;
+use App\Http\Controllers\Statement\StreetController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\DepartmentController;
 use App\Http\Controllers\User\EmployeeController;
@@ -75,6 +76,7 @@ Route::group(["prefix" => "dashboard"],function () {
     });
     Route::group(["prefix" => "statement"],function () {
         Route::get('/', [StatementDashboardController::class, 'index'])->name('statement.dashboard');
+        Route::resource('/street', StreetController::class);
         Route::resource('/length-of-the-road-surface', LengthOfTheRoadSurfaceController::class);
         Route::resource('/roadway', RoadwayController::class);
         Route::resource('/spillway-infrastructure', SpillwayInfrastructureController::class);

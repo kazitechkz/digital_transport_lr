@@ -45,6 +45,10 @@
             "icon": "fa-brands fa-usps",
             "routes": [
                 {
+                    "name": "Улица",
+                    "link": "street.index"
+                },
+                {
                     "name": "Протяженность",
                     "link": "length-of-the-road-surface.index"
                 },

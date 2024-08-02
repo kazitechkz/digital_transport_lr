@@ -2,9 +2,11 @@
 
 namespace App\Livewire\LongitudinalProfileOfTheRoad;
 
+use App\Models\Street;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\LongitudinalProfileOfTheRoad;
+use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 
 class LongitudinalProfileOfTheRoadTable extends DataTableComponent
 {
@@ -21,7 +23,16 @@ class LongitudinalProfileOfTheRoadTable extends DataTableComponent
                 return route('longitudinal-profile-of-the-road.edit', $row);
             });
     }
-
+    public function filters(): array
+    {
+        return [
+            SelectFilter::make("Улица")
+                ->options(Street::pluck("title_ru","id")->toArray())
+                ->filter(function($builder, string $value) {
+                    return $builder->where(["street_id"=>$value]);
+                }),
+        ];
+    }
     public function bulkActions(): array
     {
         return [
