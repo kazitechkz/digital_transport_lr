@@ -73,6 +73,14 @@
                     "link": "longitudinal-profile-of-the-road.index"
                 },
                 {
+                    "name": "Технического состояния и озеленения на автомобильной дороге",
+                    "link": "landscaping-on-roadway.index"
+                },
+                {
+                    "name": "Пересечения и примыкания на автомобильной дороге",
+                    "link": "ij-on-roadway.index"
+                },
+                {
                     "name": "Statement Index 2",
                     "elementId": "dashboard.statement.index2",
                     "routes": [

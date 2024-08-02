@@ -37,6 +37,8 @@ use App\Http\Controllers\Statement\LongitudinalProfileOfTheRoadController;
 use App\Http\Controllers\Statement\RailwayTransferOnRoadwayController;
 use App\Http\Controllers\Statement\WidthRoadwayOnHighwayController;
 use App\Http\Controllers\Statement\StreetController;
+use App\Http\Controllers\Statement\LandscapingOnRoadwayController;
+use App\Http\Controllers\Statement\IntersectionAndJunctionOnRoadwayController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\DepartmentController;
 use App\Http\Controllers\User\EmployeeController;
@@ -83,6 +85,8 @@ Route::group(["prefix" => "dashboard"],function () {
         Route::resource('/railway-transfer-on-roadway', RailwayTransferOnRoadwayController::class);
         Route::resource('/width-roadway-on-highway', WidthRoadwayOnHighwayController::class);
         Route::resource('/longitudinal-profile-of-the-road', LongitudinalProfileOfTheRoadController::class);
+        Route::resource('/landscaping-on-roadway', LandscapingOnRoadwayController::class);
+        Route::resource('/ij-on-roadway', IntersectionAndJunctionOnRoadwayController::class);
     });
     Route::group(["prefix" => "reference-book"],function () {
         Route::get("/",[ReferenceBookController::class,"index"])->name("reference-book.index");

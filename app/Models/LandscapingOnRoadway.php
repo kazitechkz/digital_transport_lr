@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class LandscapingOnRoadway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $start_location_right_km
@@ -35,7 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $landscaping_condition_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property LandscapingCondition $landscaping_condition
  * @property Street $street
  *
@@ -43,6 +44,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class LandscapingOnRoadway extends Model
 {
+    use CRUD;
 	protected $table = 'landscaping_on_roadways';
 
 	protected $casts = [
