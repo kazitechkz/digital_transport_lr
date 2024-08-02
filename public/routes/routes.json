@@ -3,7 +3,7 @@
         {
             "permission": "dashboard/setting*",
             "name": "Системные",
-            "link": "setting.index",
+            "link": "setting.dashboard",
             "icon": "fa-solid fa-gear",
             "routes": [
                 {
@@ -25,38 +25,36 @@
         {
             "permission": "dashboard/user*",
             "name": "Users",
-            "link": "user.test",
+            "link": "user.dashboard",
             "icon": "fa-regular fa-user",
             "routes": [
                 {
-                    "name": "User Index",
-                    "link": "user.test"
+                    "name": "Департаменты",
+                    "link": "department.index"
                 },
                 {
-                    "name": "user Index 2",
-                    "elementId": "dashboard.user.index2",
-                    "routes": [
-                        {
-                            "name": "Test 1",
-                            "link": "user.test"
-                        },
-                        {
-                            "name": "Test 2",
-                            "link": "user.test"
-                        }
-                    ]
+                    "name": "Пользователи",
+                    "link": "employee.index"
                 }
             ]
         },
         {
             "permission": "dashboard/statement*",
-            "name": "Statement",
-            "link": "statement.test",
+            "name": "Ведомость",
+            "link": "statement.dashboard",
             "icon": "fa-brands fa-usps",
             "routes": [
                 {
-                    "name": "Statement Index",
-                    "link": "statement.test"
+                    "name": "Протяженность",
+                    "link": "length-of-the-road-surface.index"
+                },
+                {
+                    "name": "Проезжая часть",
+                    "link": "roadway.index"
+                },
+                {
+                    "name": "Люки и решетки колодцев",
+                    "link": "spillway-infrastructure.index"
                 },
                 {
                     "name": "Statement Index 2",
@@ -64,11 +62,11 @@
                     "routes": [
                         {
                             "name": "Test 1",
-                            "link": "statement.test"
+                            "link": "statement.dashboard"
                         },
                         {
                             "name": "Test 2",
-                            "link": "statement.test"
+                            "link": "statement.dashboard"
                         }
                     ]
                 }

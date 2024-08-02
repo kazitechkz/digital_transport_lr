@@ -18,7 +18,7 @@ class PermissionController extends Controller
             return view('dashboard.setting.permission.index', compact('permissions'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -27,7 +27,12 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('dashboard.setting.permission.create');
+        try {
+            return view('dashboard.setting.permission.create');
+        } catch (\Exception $exception){
+            toastr()->error($exception->getMessage(),"Error");
+            return redirect()->back();
+        }
     }
 
     /**
@@ -35,16 +40,21 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['name' => 'required|regex:/^[a-zA-Z]+(-[a-zA-Z]+)*$/']);
-        if ($request->get('crud')) {
-            Permission::create(['name' => $request['name']. ' create']);
-            Permission::create(['name' => $request['name']. ' read']);
-            Permission::create(['name' => $request['name']. ' update']);
-            Permission::create(['name' => $request['name']. ' delete']);
-        } else {
-            Permission::create(['name' => $request['name']. ' management']);
+        try {
+            $this->validate($request, ['name' => 'required|regex:/^[a-zA-Z]+(-[a-zA-Z]+)*$/']);
+            if ($request->get('crud')) {
+                Permission::create(['name' => $request['name']. ' create']);
+                Permission::create(['name' => $request['name']. ' read']);
+                Permission::create(['name' => $request['name']. ' update']);
+                Permission::create(['name' => $request['name']. ' delete']);
+            } else {
+                Permission::create(['name' => $request['name']. ' management']);
+            }
+            return redirect(route('permission.index'));
+        } catch (\Exception $exception){
+            toastr()->error($exception->getMessage(),"Error");
+            return redirect()->back();
         }
-        return redirect(route('permission.index'));
     }
 
     /**
@@ -65,7 +75,7 @@ class PermissionController extends Controller
             return view('dashboard.setting.permission.edit', compact('permission'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -82,7 +92,7 @@ class PermissionController extends Controller
             return redirect(route('permission.index'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 

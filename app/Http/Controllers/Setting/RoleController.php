@@ -19,7 +19,7 @@ class RoleController extends Controller
             return view('dashboard.setting.role.index', compact('roles'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -32,7 +32,7 @@ class RoleController extends Controller
             return view('dashboard.setting.role.create');
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -47,7 +47,7 @@ class RoleController extends Controller
             return redirect(route('role.index'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -61,7 +61,7 @@ class RoleController extends Controller
             return view('dashboard.setting.role.show', compact('role'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -75,7 +75,7 @@ class RoleController extends Controller
             return view('dashboard.setting.role.edit', compact('role'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
@@ -92,7 +92,7 @@ class RoleController extends Controller
             return redirect(route('role.index'));
         } catch (\Exception $exception){
             toastr()->error($exception->getMessage(),"Error");
-            return redirect()->route("home");
+            return redirect()->back();
         }
     }
 
