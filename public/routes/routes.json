@@ -57,6 +57,18 @@
                     "link": "spillway-infrastructure.index"
                 },
                 {
+                    "name": "ЖД переезды на автомобильной дороге",
+                    "link": "railway-transfer-on-roadway.index"
+                },
+                {
+                    "name": "Ширина проезжей части на автомобильной дороге",
+                    "link": "width-roadway-on-highway.index"
+                },
+                {
+                    "name": "Продольный профиль на автомобильной дороге",
+                    "link": "longitudinal-profile-of-the-road.index"
+                },
+                {
                     "name": "Statement Index 2",
                     "elementId": "dashboard.statement.index2",
                     "routes": [
