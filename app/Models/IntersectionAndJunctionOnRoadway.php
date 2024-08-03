@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class IntersectionAndJunctionOnRoadway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $location_right_km
@@ -27,7 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $coverage_type_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property CoverageType $coverage_type
  * @property Street $street
  *
@@ -35,6 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class IntersectionAndJunctionOnRoadway extends Model
 {
+    use CRUD;
 	protected $table = 'intersection_and_junction_on_roadways';
 
 	protected $casts = [

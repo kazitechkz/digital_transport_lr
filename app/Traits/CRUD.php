@@ -65,4 +65,49 @@ trait CRUD
     {
         $this->delete();
     }
+
+    public static function addWithBoolean($fields,$request): static
+    {
+        try{
+            $model = new static;
+            foreach ($model->casts as $key => $value){
+                if($value == "bool"){
+                    if(isset($fields[$key])){
+                        $fields[$key] = $request->boolean($fields[$key]);
+                    }
+                    else{
+                        $fields[$key] = false;
+                    }
+                }
+            }
+            $model->fill($fields);
+            $model->save();
+            return $model;
+        }
+        catch (\Exception $exception){
+            dd($exception);
+        }
+    }
+
+    public function editWithBoolean($fields,$request): void
+    {
+        try{
+            foreach ($this->casts as $key => $value){
+                if($value == "bool"){
+                    if(isset($fields[$key])){
+                        $fields[$key] = $request->boolean($fields[$key]);
+                    }
+                    else{
+                        $fields[$key] = false;
+                    }
+                }
+            }
+            $this->fill($fields);
+            $this->save();
+        }
+        catch (\Exception $exception){
+            dd($exception);
+        }
+
+    }
 }

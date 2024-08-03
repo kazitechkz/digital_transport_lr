@@ -45,6 +45,10 @@
             "icon": "fa-brands fa-usps",
             "routes": [
                 {
+                    "name": "Улица",
+                    "link": "street.index"
+                },
+                {
                     "name": "Протяженность",
                     "link": "length-of-the-road-surface.index"
                 },
@@ -55,6 +59,34 @@
                 {
                     "name": "Люки и решетки колодцев",
                     "link": "spillway-infrastructure.index"
+                },
+                {
+                    "name": "ЖД переезды на автомобильной дороге",
+                    "link": "railway-transfer-on-roadway.index"
+                },
+                {
+                    "name": "Ширина проезжей части на автомобильной дороге",
+                    "link": "width-roadway-on-highway.index"
+                },
+                {
+                    "name": "Продольный профиль на автомобильной дороге",
+                    "link": "longitudinal-profile-of-the-road.index"
+                },
+                {
+                    "name": "Технического состояния и озеленения на автомобильной дороге",
+                    "link": "landscaping-on-roadway.index"
+                },
+                {
+                    "name": "Пересечения и примыкания на автомобильной дороге",
+                    "link": "ij-on-roadway.index"
+                },
+                {
+                    "name": "Наличия коммуникаций в пределах полосы отвода на автомобильной дороге",
+                    "link": "cwb-on-roadway.index"
+                },
+                {
+                    "name": "Наличия и технического состояния дорожных знаков на автомобильной дороге",
+                    "link": "road-sign-on-roadway.index"
                 },
                 {
                     "name": "Сведения о дорожной разметке",

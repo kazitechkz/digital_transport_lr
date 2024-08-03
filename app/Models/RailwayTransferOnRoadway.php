@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class RailwayTransferOnRoadway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $location_m
@@ -29,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $floor_condition_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property BarrierType $barrier_type
  * @property FlooringCondition $flooring_condition
  * @property Street $street
@@ -38,6 +39,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class RailwayTransferOnRoadway extends Model
 {
+    use CRUD;
 	protected $table = 'railway_transfer_on_roadways';
 
 	protected $casts = [

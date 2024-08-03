@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class WidthRoadwayOnHighway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $start_of_region_km
@@ -24,13 +25,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $street_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Street $street
  *
  * @package App\Models
  */
 class WidthRoadwayOnHighway extends Model
 {
+    use CRUD;
 	protected $table = 'width_roadway_on_highways';
 
 	protected $casts = [
