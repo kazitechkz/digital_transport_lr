@@ -26,11 +26,11 @@ class TrafficLightOnRoadwayUpdateRequest extends FormRequest
         return [
             'order' => 'required|integer',
             'on_axis' => 'required|numeric',
-            'have_controller' => 'required|boolean',
+            'have_controller' => 'nullable',
             'traffic_light_qty' => 'required|integer',
             'pedestrian_traffic_light_qty' => 'required|integer',
             'rotary_section_qty' => 'required|integer',
-            'have_column' => 'required|boolean',
+            'have_column' => 'nullable',
             'street_id' => 'required|exists:streets,id',
             'side_id' => 'required|exists:sides,id',
             'traffic_light_type_id' => 'required|exists:type_traffic_lights,id',

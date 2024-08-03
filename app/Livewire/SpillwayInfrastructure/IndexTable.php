@@ -45,6 +45,7 @@ class IndexTable extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable(),
             Column::make("Номер", "order")
+                ->searchable()
                 ->sortable(),
             Column::make("По оси, м", "on_axis_m")
                 ->sortable(),
@@ -59,10 +60,13 @@ class IndexTable extends DataTableComponent
             Column::make("Примечание", "note")
                 ->sortable(),
             Column::make("Улица", "street.title_ru")
+                ->searchable()
                 ->sortable(),
             Column::make("Сторона", "side.title_ru")
+                ->searchable()
                 ->sortable(),
             Column::make("Тип колодца", "wells_type.title_ru")
+                ->searchable()
                 ->sortable()
         ];
     }

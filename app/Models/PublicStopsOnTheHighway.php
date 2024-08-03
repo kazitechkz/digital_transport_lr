@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class PublicStopsOnTheHighway
- * 
+ * Class PublicStopsOnTheHighwayController
+ *
  * @property int $id
  * @property int $order
  * @property float $start_m
@@ -26,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $side_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Side $side
  * @property Street $street
  *
@@ -34,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PublicStopsOnTheHighway extends Model
 {
+    use CRUD;
 	protected $table = 'public_stops_on_the_highways';
 
 	protected $casts = [

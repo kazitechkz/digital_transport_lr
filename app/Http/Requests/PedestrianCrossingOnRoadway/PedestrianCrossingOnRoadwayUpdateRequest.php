@@ -26,7 +26,7 @@ class PedestrianCrossingOnRoadwayUpdateRequest extends FormRequest
         return [
             'order' => 'required|integer',
             'address_length_m' => 'required|numeric',
-            'bus_stop_has_pedestrian' => 'required|boolean',
+            'bus_stop_has_pedestrian' => 'nullable',
             'street_id' => 'required|exists:streets,id',
             'pc_type_id' => 'required|exists:pedestrian_crossing_types,id',
             'pc_position_id' => 'required|exists:pedestrian_crossing_positions,id',

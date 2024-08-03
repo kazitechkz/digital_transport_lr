@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class SidewalkOnRoadway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $start_m
@@ -26,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $position_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property CoverageType $coverage_type
  * @property Position $position
  * @property Side $side
@@ -36,6 +37,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SidewalkOnRoadway extends Model
 {
+    use CRUD;
 	protected $table = 'sidewalk_on_roadways';
 
 	protected $casts = [

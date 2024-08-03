@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('street_id');
             $table->unsignedBigInteger('side_id');
             $table->timestamps();
-
+            $table->foreignId('lighting_type_id')->references('id')->on('lighting_support_types')->cascadeOnDelete();
             $table->foreign('street_id')->references('id')->on('streets')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('side_id')->references('id')->on('sides')->onDelete('cascade')->onUpdate('cascade');
 

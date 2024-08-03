@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class InformationOfRoadMarking
- * 
+ *
  * @property int $id
  * @property float $road_width_sm
  * @property float $road_length_m
@@ -21,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $road_marking_material_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property RoadMarking $road_marking
  * @property RoadMarkingMaterial|null $road_marking_material
  * @property Street $street
@@ -30,6 +31,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class InformationOfRoadMarking extends Model
 {
+    use CRUD;
 	protected $table = 'information_of_road_markings';
 
 	protected $casts = [

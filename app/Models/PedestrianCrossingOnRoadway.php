@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class PedestrianCrossingOnRoadway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $address_length_m
@@ -21,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $pc_position_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property PedestrianCrossingPosition $pedestrian_crossing_position
  * @property PedestrianCrossingType $pedestrian_crossing_type
  * @property Street $street
@@ -30,6 +31,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PedestrianCrossingOnRoadway extends Model
 {
+    use CRUD;
 	protected $table = 'pedestrian_crossing_on_roadways';
 
 	protected $casts = [

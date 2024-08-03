@@ -9,6 +9,7 @@
             label="Номер*"
             wire:model.blur="order"
             name="order"
+            type="number"
             placeholder="номер"
         />
     </div>

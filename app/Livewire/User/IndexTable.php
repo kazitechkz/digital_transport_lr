@@ -51,6 +51,7 @@ class IndexTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Email", "email")
+                ->searchable()
                 ->sortable(),
             Column::make("Дата создания", "created_at")
                 ->sortable()

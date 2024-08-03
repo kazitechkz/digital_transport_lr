@@ -42,8 +42,10 @@ class IndexTable extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable(),
             Column::make("Title kk", "title_kk")
+                ->searchable()
                 ->sortable(),
             Column::make("Title ru", "title_ru")
+                ->searchable()
                 ->sortable(),
             Column::make("Status", "status")
                 ->sortable(),

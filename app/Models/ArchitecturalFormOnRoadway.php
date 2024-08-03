@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ArchitecturalFormOnRoadway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $start_m
@@ -24,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $architectural_form_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property ArchitecturalForm $architectural_form
  * @property Side $side
  * @property Street $street
@@ -33,6 +34,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ArchitecturalFormOnRoadway extends Model
 {
+    use CRUD;
 	protected $table = 'architectural_form_on_roadways';
 
 	protected $casts = [

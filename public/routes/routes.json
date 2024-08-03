@@ -57,18 +57,44 @@
                     "link": "spillway-infrastructure.index"
                 },
                 {
-                    "name": "Statement Index 2",
-                    "elementId": "dashboard.statement.index2",
-                    "routes": [
-                        {
-                            "name": "Test 1",
-                            "link": "statement.dashboard"
-                        },
-                        {
-                            "name": "Test 2",
-                            "link": "statement.dashboard"
-                        }
-                    ]
+                    "name": "Сведения о дорожной разметке",
+                    "link": "information-of-road-marking.index"
+                },
+                {
+                    "name": "Малые архитектурные формы",
+                    "link": "architectural-form-on-roadway.index"
+                },
+                {
+                    "name": "Светофорные объекты",
+                    "link": "traffic-light-on-roadway.index"
+                },
+                {
+                    "name": "Газоны и цветники",
+                    "link": "landing-type-on-roadway.index"
+                },
+                {
+                    "name": "Остановки",
+                    "link": "public-stops-on-the-highway.index"
+                },
+                {
+                    "name": "Опоры освещений и контактных сетей",
+                    "link": "lighting-on-roadway.index"
+                },
+                {
+                    "name": "Ограждающие и направляющие устройства",
+                    "link": "fencing-and-guide-on-roadway.index"
+                },
+                {
+                    "name": "Бортовые камни",
+                    "link": "side-stone-on-roadway.index"
+                },
+                {
+                    "name": "Тротуары, пешеходные зоны и дорожки",
+                    "link": "sidewalk-on-roadway.index"
+                },
+                {
+                    "name": "Наличие пешеходных переходов",
+                    "link": "pedestrian-crossing-on-roadway.index"
                 }
             ]
         },

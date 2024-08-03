@@ -42,6 +42,7 @@ class IndexTable extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable(),
             Column::make("Номер", "order")
+                ->searchable()
                 ->sortable(),
             Column::make("От, м", "start_m")
                 ->sortable(),
@@ -50,12 +51,16 @@ class IndexTable extends DataTableComponent
             Column::make("Площадь, м2", "square_m")
                 ->sortable(),
             Column::make("Улица", "street.title_ru")
+                ->searchable()
                 ->sortable(),
             Column::make("Сторона", "side.title_ru")
+                ->searchable()
                 ->sortable(),
             Column::make("Тип покрытия", "coverage_type.title_ru")
+                ->searchable()
                 ->sortable(),
             Column::make("Категория", "category_of_highway.title_ru")
+                ->searchable()
                 ->sortable()
         ];
     }

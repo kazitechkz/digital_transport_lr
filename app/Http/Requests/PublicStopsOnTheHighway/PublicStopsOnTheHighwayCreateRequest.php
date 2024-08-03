@@ -30,7 +30,7 @@ class PublicStopsOnTheHighwayCreateRequest extends FormRequest
             'bus_stop' => 'nullable|string',
             'pavilion_qty' => 'required|integer',
             'distance_to_the_roadway_m' => 'required|numeric',
-            'have_route' => 'required|boolean',
+            'have_route' => 'nullable',
             'boarding_square_m' => 'required|numeric',
             'extension_square_m' => 'required|numeric',
             'street_id' => 'required|exists:streets,id',

@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class SideStoneOnRoadway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $start_m
@@ -23,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $side_stone_type_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Side $side
  * @property SideStoneStamp $side_stone_stamp
  * @property SideStoneType $side_stone_type
@@ -33,6 +34,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SideStoneOnRoadway extends Model
 {
+    use CRUD;
 	protected $table = 'side_stone_on_roadways';
 
 	protected $casts = [

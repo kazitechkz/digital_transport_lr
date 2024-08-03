@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class TrafficLightOnRoadway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $on_axis
@@ -25,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $traffic_light_type_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Side $side
  * @property Street $street
  * @property TypeTrafficLight $type_traffic_light
@@ -34,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TrafficLightOnRoadway extends Model
 {
+    use CRUD;
 	protected $table = 'traffic_light_on_roadways';
 
 	protected $casts = [
