@@ -38,7 +38,9 @@ use App\Http\Controllers\Statement\RailwayTransferOnRoadwayController;
 use App\Http\Controllers\Statement\WidthRoadwayOnHighwayController;
 use App\Http\Controllers\Statement\StreetController;
 use App\Http\Controllers\Statement\LandscapingOnRoadwayController;
+use App\Http\Controllers\Statement\CommunicationWithinTheBandOnRoadwayController;
 use App\Http\Controllers\Statement\IntersectionAndJunctionOnRoadwayController;
+use App\Http\Controllers\Statement\RoadSignOnRoadwayController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\DepartmentController;
 use App\Http\Controllers\User\EmployeeController;
@@ -87,6 +89,8 @@ Route::group(["prefix" => "dashboard"],function () {
         Route::resource('/longitudinal-profile-of-the-road', LongitudinalProfileOfTheRoadController::class);
         Route::resource('/landscaping-on-roadway', LandscapingOnRoadwayController::class);
         Route::resource('/ij-on-roadway', IntersectionAndJunctionOnRoadwayController::class);
+        Route::resource('/cwb-on-roadway', CommunicationWithinTheBandOnRoadwayController::class);
+        Route::resource('/road-sign-on-roadway', RoadSignOnRoadwayController::class);
     });
     Route::group(["prefix" => "reference-book"],function () {
         Route::get("/",[ReferenceBookController::class,"index"])->name("reference-book.index");

@@ -14,7 +14,7 @@
                     Изменить Ведомость пересечений и примыканий на автомобильной дороге
                 </p>
                 <div class="mt-4 space-y-4">
-                    <livewire:intersection-and-junction-on-roadway.edit :intersection-and-junction-on-roadway="$landscapingOnRoadway"/>
+                    <livewire:intersection-and-junction-on-roadway.edit :intersection-and-junction-on-roadway="$intersectionAndJunctionOnRoadway"/>
                 </div>
             </div>
         </div>

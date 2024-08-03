@@ -1,7 +1,7 @@
 <x-form-component
     :method="'put'"
     :route="'ij-on-roadway.update'"
-    :parameters="['intersection_and_junction_on_roadway'=>$intersectionAndJunctionOnRoadway]"
+    :parameters="['ij_on_roadway'=>$intersectionAndJunctionOnRoadway]"
     :element-id="'ij-on-roadway-update'"
 >
     <div class="form-group my-3">

@@ -6,12 +6,13 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class RoadSignOnRoadway
- * 
+ *
  * @property int $id
  * @property int $order
  * @property float $location_km
@@ -28,7 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $road_sign_condition_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property RoadSignCondition $road_sign_condition
  * @property RoadSign $road_sign
  * @property Street $street
@@ -37,6 +38,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class RoadSignOnRoadway extends Model
 {
+    use CRUD;
 	protected $table = 'road_sign_on_roadways';
 
 	protected $casts = [

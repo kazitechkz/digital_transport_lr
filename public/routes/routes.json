@@ -81,6 +81,14 @@
                     "link": "ij-on-roadway.index"
                 },
                 {
+                    "name": "Наличия коммуникаций в пределах полосы отвода на автомобильной дороге",
+                    "link": "cwb-on-roadway.index"
+                },
+                {
+                    "name": "Наличия и технического состояния дорожных знаков на автомобильной дороге",
+                    "link": "road-sign-on-roadway.index"
+                },
+                {
                     "name": "Statement Index 2",
                     "elementId": "dashboard.statement.index2",
                     "routes": [
