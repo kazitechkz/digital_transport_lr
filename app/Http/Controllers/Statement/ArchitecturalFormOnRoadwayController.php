@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class ArchitecturalFormOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkPermission:architecturalFormOnRoadway read')->only(['index']);
+        $this->middleware('checkPermission:architecturalFormOnRoadway create')->only(['create', 'store']);
+        $this->middleware('checkPermission:architecturalFormOnRoadway update')->only(['edit', 'update']);
+        $this->middleware('checkPermission:architecturalFormOnRoadway delete')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      */

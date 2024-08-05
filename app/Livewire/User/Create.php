@@ -47,7 +47,7 @@ class Create extends Component
         $this->departments = Department::all();
     }
 
-    public function submit()
+    public function submit(): void
     {
         $this->validate();
         $data = [
@@ -59,14 +59,18 @@ class Create extends Component
             'phone' => $this->phone,
             'department_id' => $this->department_id
         ];
-        $user = User::add($data);
-        foreach ($this->role_ids as $role_id) {
-            $user->assignRole($role_id);
+        if (auth()->user()->can('employee create')) {
+            $user = User::add($data);
+            foreach ($this->role_ids as $role_id) {
+                $user->assignRole($role_id);
+            }
+            if ($this->photo) {
+                $user->uploadFile($this->photo, 'avatar');
+            }
+            $this->redirect(route('employee.index'));
+        } else {
+            $this->redirect(route('bad-request'));
         }
-        if ($this->photo) {
-            $user->uploadFile($this->photo, 'avatar');
-        }
-        $this->redirect(route('employee.index'));
     }
     public function render()
     {

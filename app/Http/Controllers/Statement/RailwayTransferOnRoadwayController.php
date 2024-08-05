@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class RailwayTransferOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:RailwayTransferOnRoadway read')->only(['index']);
+            $this->middleware('checkPermission:RailwayTransferOnRoadway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:RailwayTransferOnRoadway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:RailwayTransferOnRoadway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

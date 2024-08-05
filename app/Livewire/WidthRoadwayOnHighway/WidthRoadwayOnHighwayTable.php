@@ -44,12 +44,16 @@ class WidthRoadwayOnHighwayTable extends DataTableComponent
 
     public function deleteSelected(): void
     {
-        $model = $this->getSelected();
-        foreach ($model as $key => $value) {
-            $model_one = WidthRoadwayOnHighway::find($value);
-            $model_one?->delete();
+        if (auth()->user()->can('WidthRoadwayOnHighway delete')) {
+            $model = $this->getSelected();
+            foreach ($model as $key => $value) {
+                $model_one = WidthRoadwayOnHighway::find($value);
+                $model_one?->delete();
+            }
+            $this->clearSelected();
+        } else {
+            $this->redirect(route('bad-request'));
         }
-        $this->clearSelected();
     }
 
     public function columns(): array

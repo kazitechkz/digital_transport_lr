@@ -57,7 +57,7 @@ class Edit extends Component
             $this->role_ids[] = $roleName;
         }
     }
-    public function submit()
+    public function submit(): void
     {
         $this->validate();
         $password = $this->password ? Hash::make($this->password) : $this->user->password;
@@ -70,15 +70,19 @@ class Edit extends Component
             'phone' => $this->phone,
             'department_id' => $this->department_id
         ];
-        $this->user->edit($data);
-        foreach ($this->user->getRoleNames() as $roleName) {
-            $this->user->removeRole($roleName);
+        if (auth()->user()->can('employee update')) {
+            $this->user->edit($data);
+            foreach ($this->user->getRoleNames() as $roleName) {
+                $this->user->removeRole($roleName);
+            }
+            $this->user->assignRole($this->role_ids);
+            if (gettype($this->photo) != 'string') {
+                $this->user->uploadFile($this->photo, 'avatar');
+            }
+            $this->redirect(route('employee.index'));
+        } else {
+            $this->redirect(route('bad-request'));
         }
-        $this->user->assignRole($this->role_ids);
-        if (gettype($this->photo) != 'string') {
-            $this->user->uploadFile($this->photo, 'avatar');
-        }
-        $this->redirect(route('employee.index'));
     }
     public function render()
     {

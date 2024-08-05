@@ -31,12 +31,16 @@ class IndexTable extends DataTableComponent
 
     public function deleteSelected(): void
     {
-        $model = $this->getSelected();
-        foreach ($model as $key => $value) {
-            $entity = SpillwayInfrastructure::findOrFail($value);
-            $entity?->delete();
+        if (auth()->user()->can('SpillwayInfrastructure delete')) {
+            $model = $this->getSelected();
+            foreach ($model as $key => $value) {
+                $entity = SpillwayInfrastructure::findOrFail($value);
+                $entity?->delete();
+            }
+            $this->clearSelected();
+        } else {
+            $this->redirect(route('bad-request'));
         }
-        $this->clearSelected();
     }
 
     public function columns(): array

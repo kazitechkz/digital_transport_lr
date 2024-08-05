@@ -74,21 +74,25 @@ Route::get('/', function () {
 Route::group(["prefix" => "auth"],function (){
    Route::get("login",[AuthController::class,"login"])->name("login");
    Route::post("auth",[AuthController::class,"auth"])->name("auth");
+   Route::get('logout', function () {
+       Auth::logout();
+       return redirect(route('login'));
+   })->name('logout');
 });
 
-Route::group(["prefix" => "dashboard"],function () {
+Route::group(["prefix" => "dashboard", "middleware" => "auth"],function () {
     Route::get("/",[DashboardController::class,"index"])->name("dashboard.index");
-    Route::group(["prefix" => "setting"],function () {
+    Route::group(["prefix" => "setting", "middleware" => "checkPermission:setting management"],function () {
         Route::get('/', [SettingDashboardController::class, 'index'])->name('setting.dashboard');
         Route::resource('permission', PermissionController::class);
         Route::resource('role', RoleController::class);
     });
-    Route::group(["prefix" => "user"],function () {
+    Route::group(["prefix" => "user", "middleware" => "checkPermission:user management"],function () {
         Route::get('/', [UserDashboardController::class, 'index'])->name('user.dashboard');
         Route::resource('/employee', EmployeeController::class);
         Route::resource('/department', DepartmentController::class);
     });
-    Route::group(["prefix" => "statement"],function () {
+    Route::group(["prefix" => "statement", "middleware" => "checkPermission:statement management"],function () {
         Route::get('/', [StatementDashboardController::class, 'index'])->name('statement.dashboard');
         Route::resource('/street', StreetController::class);
         Route::resource('/length-of-the-road-surface', LengthOfTheRoadSurfaceController::class);
@@ -112,7 +116,7 @@ Route::group(["prefix" => "dashboard"],function () {
         Route::resource('/sidewalk-on-roadway', SidewalkOnRoadwayController::class);
         Route::resource('/pedestrian-crossing-on-roadway', PedestrianCrossingOnRoadwayController::class);
     });
-    Route::group(["prefix" => "reference-book"],function () {
+    Route::group(["prefix" => "reference-book", "middleware" => "checkPermission:referenceBook management"],function () {
         Route::get("/",[ReferenceBookController::class,"index"])->name("reference-book.index");
         Route::resource("/coverage-type",CoverageTypeController::class);
         Route::resource("/side",SideController::class);
@@ -137,11 +141,13 @@ Route::group(["prefix" => "dashboard"],function () {
         Route::resource("/road-sign",RoadSignController::class);
         Route::resource("/road-sign-condition",RoadSignConditionController::class);
         Route::resource("/road-sign-material",RoadSignMaterialController::class);
-
     });
-
 });
 
 Route::get('not-found', function () {
     return view('not-found');
 })->name('not-found');
+Route::get('bad-request', function () {
+    $backUrl = url()->previous();
+    return view('bad-request', compact('backUrl'));
+})->name('bad-request');

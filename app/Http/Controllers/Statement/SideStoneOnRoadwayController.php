@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class SideStoneOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:SideStoneOnRoadway read')->only(['index']);
+            $this->middleware('checkPermission:SideStoneOnRoadway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:SideStoneOnRoadway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:SideStoneOnRoadway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

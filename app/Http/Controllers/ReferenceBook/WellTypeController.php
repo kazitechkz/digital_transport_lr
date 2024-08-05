@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class WellTypeController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:WellType read')->only(['index']);
+            $this->middleware('checkPermission:WellType create')->only(['create', 'store']);
+            $this->middleware('checkPermission:WellType update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:WellType delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class CommunicationWithinTheBandOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkPermission:CommunicationWithinTheBandOnRoadway read')->only(['index']);
+        $this->middleware('checkPermission:CommunicationWithinTheBandOnRoadway create')->only(['create', 'store']);
+        $this->middleware('checkPermission:CommunicationWithinTheBandOnRoadway update')->only(['edit', 'update']);
+        $this->middleware('checkPermission:CommunicationWithinTheBandOnRoadway delete')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      */

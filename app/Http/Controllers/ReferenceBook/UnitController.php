@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:Unit read')->only(['index']);
+            $this->middleware('checkPermission:Unit create')->only(['create', 'store']);
+            $this->middleware('checkPermission:Unit update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:Unit delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

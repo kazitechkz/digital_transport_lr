@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class LandscapingOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:LandscapingOnRoadway read')->only(['index']);
+            $this->middleware('checkPermission:LandscapingOnRoadway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:LandscapingOnRoadway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:LandscapingOnRoadway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

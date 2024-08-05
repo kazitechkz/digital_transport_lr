@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class WidthRoadwayOnHighwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:WidthRoadwayOnHighway read')->only(['index']);
+            $this->middleware('checkPermission:WidthRoadwayOnHighway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:WidthRoadwayOnHighway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:WidthRoadwayOnHighway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

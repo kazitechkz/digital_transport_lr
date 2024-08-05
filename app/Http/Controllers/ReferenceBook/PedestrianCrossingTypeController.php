@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class PedestrianCrossingTypeController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:PedestrianCrossingType read')->only(['index']);
+            $this->middleware('checkPermission:PedestrianCrossingType create')->only(['create', 'store']);
+            $this->middleware('checkPermission:PedestrianCrossingType update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:PedestrianCrossingType delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

@@ -51,12 +51,16 @@ class CommunicationWithinTheBandOnRoadwayTable extends DataTableComponent
 
     public function deleteSelected(): void
     {
-        $model = $this->getSelected();
-        foreach ($model as $key => $value) {
-            $model_one = CommunicationWithinTheBandOnRoadway::find($value);
-            $model_one?->delete();
+        if (auth()->user()->can('CommunicationWithinTheBandOnRoadway delete')) {
+            $model = $this->getSelected();
+            foreach ($model as $key => $value) {
+                $model_one = CommunicationWithinTheBandOnRoadway::find($value);
+                $model_one?->delete();
+            }
+            $this->clearSelected();
+        } else {
+            $this->redirect(route('bad-request'));
         }
-        $this->clearSelected();
     }
 
     public function columns(): array

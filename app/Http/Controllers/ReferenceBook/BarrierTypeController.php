@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class BarrierTypeController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:BarrierType read')->only(['index']);
+            $this->middleware('checkPermission:BarrierType create')->only(['create', 'store']);
+            $this->middleware('checkPermission:BarrierType update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:BarrierType delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

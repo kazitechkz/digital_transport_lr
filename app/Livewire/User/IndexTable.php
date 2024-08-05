@@ -2,9 +2,13 @@
 
 namespace App\Livewire\User;
 
+use App\Models\Department;
+use Illuminate\Support\Facades\DB;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\User;
+use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
+use Spatie\Permission\Models\Role;
 
 class IndexTable extends DataTableComponent
 {
@@ -27,16 +31,41 @@ class IndexTable extends DataTableComponent
             'deleteSelected' => 'Удалить'
         ];
     }
-
+    public function filters(): array
+    {
+        $roles = Role::pluck("name","id")->toArray();
+        $departments = Department::pluck("title_ru","id")->toArray();
+        $roleOptions = ['' => 'Все'];
+        $roleOptions += $roles;
+        $departmentOptions = ['' => 'Все'];
+        $departmentOptions += $departments;
+        return [
+            SelectFilter::make("Роль")
+                ->options($roleOptions)
+                ->filter(function($builder, string $value) {
+                    $user_ids = DB::table("model_has_roles")->where("role_id", $value)->pluck("model_id")->toArray();
+                    $builder->whereIn("users.id", $user_ids);
+                }),
+            SelectFilter::make("Департамент")
+                ->options($departmentOptions)
+                ->filter(function($builder, string $value) {
+                    $builder->where("users.department_id", $value);
+                }),
+        ];
+    }
     public function deleteSelected(): void
     {
-        $model = $this->getSelected();
-        foreach ($model as $key => $value) {
-            $entity = User::findOrFail($value);
-            $entity?->removeFile('avatar');
-            $entity?->delete();
+        if (auth()->user()->can('employee delete')) {
+            $model = $this->getSelected();
+            foreach ($model as $key => $value) {
+                $entity = User::findOrFail($value);
+                $entity?->removeFile('avatar');
+                $entity?->delete();
+            }
+            $this->clearSelected();
+        } else {
+            $this->redirect(route('bad-request'));
         }
-        $this->clearSelected();
     }
 
     public function columns(): array

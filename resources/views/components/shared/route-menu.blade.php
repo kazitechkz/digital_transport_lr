@@ -35,14 +35,16 @@
         >
             <ul class="flex flex-1 flex-col px-4 font-inter">
                 @foreach($routes as $route)
-                    @if(isset($route['routes']))
-                        <x-shared.sidebar-menu :name="$route['name']" :elementId="$route['elementId']">
-                            @foreach($route['routes'] as $item)
-                                <x-shared.sub-sidebar-menu :name="$item['name']" :link="$item['link']"/>
-                            @endforeach
-                        </x-shared.sidebar-menu>
-                    @else
-                        <x-shared.default-sidebar-menu :name="$route['name']" :link="$route['link']"/>
+                    @if(auth()->user()->can($route['permission']))
+                        @if(isset($route['routes']))
+                            <x-shared.sidebar-menu :name="$route['name']" :elementId="$route['elementId']">
+                                @foreach($route['routes'] as $item)
+                                    <x-shared.sub-sidebar-menu :name="$item['name']" :link="$item['link']"/>
+                                @endforeach
+                            </x-shared.sidebar-menu>
+                        @else
+                            <x-shared.default-sidebar-menu :name="$route['name']" :link="$route['link']"/>
+                        @endif
                     @endif
                 @endforeach
             </ul>

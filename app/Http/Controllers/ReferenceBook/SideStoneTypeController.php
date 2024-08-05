@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class SideStoneTypeController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:SideStoneType read')->only(['index']);
+            $this->middleware('checkPermission:SideStoneType create')->only(['create', 'store']);
+            $this->middleware('checkPermission:SideStoneType update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:SideStoneType delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

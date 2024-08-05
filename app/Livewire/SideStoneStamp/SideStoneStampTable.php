@@ -31,12 +31,16 @@ class SideStoneStampTable extends DataTableComponent
 
     public function deleteSelected(): void
     {
-        $model = $this->getSelected();
-        foreach ($model as $key => $value) {
-            $model_one = SideStoneStamp::find($value);
-            $model_one?->delete();
+        if (auth()->user()->can('SideStoneStamp delete')) {
+            $model = $this->getSelected();
+            foreach ($model as $key => $value) {
+                $model_one = SideStoneStamp::find($value);
+                $model_one?->delete();
+            }
+            $this->clearSelected();
+        } else {
+            $this->redirect(route('bad-request'));
         }
-        $this->clearSelected();
     }
 
     public function columns(): array

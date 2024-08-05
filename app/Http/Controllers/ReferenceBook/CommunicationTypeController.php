@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class CommunicationTypeController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:CommunicationType read')->only(['index']);
+            $this->middleware('checkPermission:CommunicationType create')->only(['create', 'store']);
+            $this->middleware('checkPermission:CommunicationType update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:CommunicationType delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

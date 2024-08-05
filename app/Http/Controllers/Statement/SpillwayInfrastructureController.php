@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class SpillwayInfrastructureController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:SpillwayInfrastructure read')->only(['index']);
+            $this->middleware('checkPermission:SpillwayInfrastructure create')->only(['create', 'store']);
+            $this->middleware('checkPermission:SpillwayInfrastructure update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:SpillwayInfrastructure delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class SideController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:Side read')->only(['index']);
+            $this->middleware('checkPermission:Side create')->only(['create', 'store']);
+            $this->middleware('checkPermission:Side update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:Side delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class FlooringConditionController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:FlooringCondition read')->only(['index']);
+            $this->middleware('checkPermission:FlooringCondition create')->only(['create', 'store']);
+            $this->middleware('checkPermission:FlooringCondition update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:FlooringCondition delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

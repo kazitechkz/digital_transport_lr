@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class IntersectionAndJunctionOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:IntersectionAndJunctionOnRoadway read')->only(['index']);
+            $this->middleware('checkPermission:IntersectionAndJunctionOnRoadway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:IntersectionAndJunctionOnRoadway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:IntersectionAndJunctionOnRoadway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

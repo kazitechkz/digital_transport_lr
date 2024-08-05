@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class FencingAndGuideTypeController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:FencingAndGuideType read')->only(['index']);
+            $this->middleware('checkPermission:FencingAndGuideType create')->only(['create', 'store']);
+            $this->middleware('checkPermission:FencingAndGuideType update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:FencingAndGuideType delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

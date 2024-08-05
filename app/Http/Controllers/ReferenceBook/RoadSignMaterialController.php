@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class RoadSignMaterialController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:RoadSignMaterial read')->only(['index']);
+            $this->middleware('checkPermission:RoadSignMaterial create')->only(['create', 'store']);
+            $this->middleware('checkPermission:RoadSignMaterial update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:RoadSignMaterial delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

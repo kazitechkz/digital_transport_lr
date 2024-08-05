@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class InformationOfRoadMarkingController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:InformationOfRoadMarking read')->only(['index']);
+            $this->middleware('checkPermission:InformationOfRoadMarking create')->only(['create', 'store']);
+            $this->middleware('checkPermission:InformationOfRoadMarking update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:InformationOfRoadMarking delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

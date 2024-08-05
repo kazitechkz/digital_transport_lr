@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class LandscapingConditionController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:LandscapingCondition read')->only(['index']);
+            $this->middleware('checkPermission:LandscapingCondition create')->only(['create', 'store']);
+            $this->middleware('checkPermission:LandscapingCondition update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:LandscapingCondition delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

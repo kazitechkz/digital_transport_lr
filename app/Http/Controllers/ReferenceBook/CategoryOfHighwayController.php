@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class CategoryOfHighwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:CategoryOfHighway read')->only(['index']);
+            $this->middleware('checkPermission:CategoryOfHighway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:CategoryOfHighway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:CategoryOfHighway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

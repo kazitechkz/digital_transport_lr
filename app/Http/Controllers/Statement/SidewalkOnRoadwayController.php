@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class SidewalkOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:SidewalkOnRoadway read')->only(['index']);
+            $this->middleware('checkPermission:SidewalkOnRoadway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:SidewalkOnRoadway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:SidewalkOnRoadway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

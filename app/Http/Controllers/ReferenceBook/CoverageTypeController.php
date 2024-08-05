@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class CoverageTypeController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:CoverageType read')->only(['index']);
+            $this->middleware('checkPermission:CoverageType create')->only(['create', 'store']);
+            $this->middleware('checkPermission:CoverageType update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:CoverageType delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class StreetController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:Street read')->only(['index']);
+            $this->middleware('checkPermission:Street create')->only(['create', 'store']);
+            $this->middleware('checkPermission:Street update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:Street delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

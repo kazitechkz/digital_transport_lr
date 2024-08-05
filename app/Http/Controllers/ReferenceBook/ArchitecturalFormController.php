@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class ArchitecturalFormController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:ArchitecturalForm read')->only(['index']);
+            $this->middleware('checkPermission:ArchitecturalForm create')->only(['create', 'store']);
+            $this->middleware('checkPermission:ArchitecturalForm update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:ArchitecturalForm delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

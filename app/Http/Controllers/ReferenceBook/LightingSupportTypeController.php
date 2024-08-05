@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class LightingSupportTypeController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:LightingSupportType read')->only(['index']);
+            $this->middleware('checkPermission:LightingSupportType create')->only(['create', 'store']);
+            $this->middleware('checkPermission:LightingSupportType update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:LightingSupportType delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class LongitudinalProfileOfTheRoadController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:LongitudinalProfileOfTheRoad read')->only(['index']);
+            $this->middleware('checkPermission:LongitudinalProfileOfTheRoad create')->only(['create', 'store']);
+            $this->middleware('checkPermission:LongitudinalProfileOfTheRoad update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:LongitudinalProfileOfTheRoad delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

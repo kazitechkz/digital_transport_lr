@@ -9,6 +9,14 @@ use Spatie\Permission\Models\Role;
 
 class EmployeeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkPermission:employee read')->only(['index']);
+        $this->middleware('checkPermission:employee create')->only(['create', 'store']);
+        $this->middleware('checkPermission:employee update')->only(['edit', 'update']);
+        $this->middleware('checkPermission:employee delete')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -40,13 +48,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            dd($request->all());
-
-        } catch (\Exception $exception){
-            toastr()->error($exception->getMessage(),"Error");
-            return redirect()->back();
-        }
+        //
     }
 
     /**

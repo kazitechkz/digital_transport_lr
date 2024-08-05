@@ -29,12 +29,16 @@ class IndexTable extends DataTableComponent
     }
     public function deleteSelected(): void
     {
-        $model = $this->getSelected();
-        foreach ($model as $key => $value) {
-            $entity = PedestrianCrossingOnRoadway::findOrFail($value);
-            $entity?->delete();
+        if (auth()->user()->can('PedestrianCrossingOnRoadway delete')) {
+            $model = $this->getSelected();
+            foreach ($model as $key => $value) {
+                $entity = PedestrianCrossingOnRoadway::findOrFail($value);
+                $entity?->delete();
+            }
+            $this->clearSelected();
+        } else {
+            $this->redirect(route('bad-request'));
         }
-        $this->clearSelected();
     }
 
     public function columns(): array

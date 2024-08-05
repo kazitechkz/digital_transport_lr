@@ -12,6 +12,15 @@ use Illuminate\Http\Request;
 
 class LengthOfTheRoadSurfaceController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:LengthOfTheRoadSurface read')->only(['index']);
+            $this->middleware('checkPermission:LengthOfTheRoadSurface create')->only(['create', 'store']);
+            $this->middleware('checkPermission:LengthOfTheRoadSurface update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:LengthOfTheRoadSurface delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

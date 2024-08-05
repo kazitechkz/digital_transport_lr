@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class RoadwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:Roadway read')->only(['index']);
+            $this->middleware('checkPermission:Roadway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:Roadway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:Roadway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

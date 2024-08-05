@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class RoadSignConditionController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:RoadSignCondition read')->only(['index']);
+            $this->middleware('checkPermission:RoadSignCondition create')->only(['create', 'store']);
+            $this->middleware('checkPermission:RoadSignCondition update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:RoadSignCondition delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

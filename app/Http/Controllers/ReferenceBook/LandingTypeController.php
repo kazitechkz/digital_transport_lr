@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class LandingTypeController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:LandingType read')->only(['index']);
+            $this->middleware('checkPermission:LandingType create')->only(['create', 'store']);
+            $this->middleware('checkPermission:LandingType update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:LandingType delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class PublicStopsOnTheHighwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:PublicStopsOnTheHighway read')->only(['index']);
+            $this->middleware('checkPermission:PublicStopsOnTheHighway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:PublicStopsOnTheHighway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:PublicStopsOnTheHighway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

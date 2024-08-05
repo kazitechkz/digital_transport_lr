@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class SideStoneStampController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:SideStoneStamp read')->only(['index']);
+            $this->middleware('checkPermission:SideStoneStamp create')->only(['create', 'store']);
+            $this->middleware('checkPermission:SideStoneStamp update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:SideStoneStamp delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

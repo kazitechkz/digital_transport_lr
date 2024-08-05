@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 
 class FencingAndGuideOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:FencingAndGuideOnRoadway read')->only(['index']);
+            $this->middleware('checkPermission:FencingAndGuideOnRoadway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:FencingAndGuideOnRoadway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:FencingAndGuideOnRoadway delete')->only('destroy');
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */

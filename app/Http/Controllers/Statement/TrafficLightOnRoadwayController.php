@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 
 class TrafficLightOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:TrafficLightOnRoadway read')->only(['index']);
+            $this->middleware('checkPermission:TrafficLightOnRoadway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:TrafficLightOnRoadway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:TrafficLightOnRoadway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */

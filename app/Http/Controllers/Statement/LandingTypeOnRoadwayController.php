@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 
 class LandingTypeOnRoadwayController extends Controller
 {
+    public function __construct()
+    {
+        {
+            $this->middleware('checkPermission:LandingTypeOnRoadway read')->only(['index']);
+            $this->middleware('checkPermission:LandingTypeOnRoadway create')->only(['create', 'store']);
+            $this->middleware('checkPermission:LandingTypeOnRoadway update')->only(['edit', 'update']);
+            $this->middleware('checkPermission:LandingTypeOnRoadway delete')->only('destroy');
+        }
+    }
     /**
      * Display a listing of the resource.
      */
