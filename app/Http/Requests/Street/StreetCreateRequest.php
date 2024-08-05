@@ -28,8 +28,7 @@ class StreetCreateRequest extends FormRequest
             'title_kk' => 'nullable|string',
             'title_en' => 'nullable|string',
             'geo_position' => 'required|json',
-            'geo_color' => 'nullable|string',
-            'is_active' => 'required|boolean',
+            'geo_color' => 'nullable|string'
         ];
     }
 }

@@ -6,13 +6,14 @@
 
 namespace App\Models;
 
+use App\Traits\CRUD;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Street
- * 
+ *
  * @property int $id
  * @property string $title_ru
  * @property string|null $title_kk
@@ -22,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool $is_active
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|ArchitecturalFormOnRoadway[] $architectural_form_on_roadways
  * @property Collection|CommunicationWithinTheBandOnRoadway[] $communication_within_the_band_on_roadways
  * @property Collection|FencingAndGuideOnRoadway[] $fencing_and_guide_on_roadways
@@ -48,6 +49,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Street extends Model
 {
+    use CRUD;
 	protected $table = 'streets';
 
 	protected $casts = [

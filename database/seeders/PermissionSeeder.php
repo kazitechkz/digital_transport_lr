@@ -17,6 +17,7 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'setting management']);
         Permission::create(['name' => 'statement management']);
         Permission::create(['name' => 'referenceBook management']);
+        Permission::create(['name' => 'draw management']);
 
         Permission::create(['name' => 'permission create']);
         Permission::create(['name' => 'permission read']);
@@ -257,5 +258,15 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'WellType read']);
         Permission::create(['name' => 'WellType update']);
         Permission::create(['name' => 'WellType delete']);
+
+        Permission::create(['name' => 'DocumentType create']);
+        Permission::create(['name' => 'DocumentType read']);
+        Permission::create(['name' => 'DocumentType update']);
+        Permission::create(['name' => 'DocumentType delete']);
+
+        Permission::create(['name' => 'StreetDocument create']);
+        Permission::create(['name' => 'StreetDocument read']);
+        Permission::create(['name' => 'StreetDocument update']);
+        Permission::create(['name' => 'StreetDocument delete']);
     }
 }

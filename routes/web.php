@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Draw\StreetDocumentController;
+use App\Http\Controllers\DrawDashboardController;
 use App\Http\Controllers\ReferenceBook\ArchitecturalFormController;
 use App\Http\Controllers\ReferenceBook\BarrierTypeController;
 use App\Http\Controllers\ReferenceBook\CategoryOfHighwayController;
@@ -27,6 +29,7 @@ use App\Http\Controllers\ReferenceBook\TypeTrafficLightController;
 use App\Http\Controllers\ReferenceBook\UnitController;
 use App\Http\Controllers\ReferenceBook\WellTypeController;
 use App\Http\Controllers\Setting\DashboardController as SettingDashboardController;
+use App\Http\Controllers\Setting\DocumentTypeController;
 use App\Http\Controllers\Setting\PermissionController;
 use App\Http\Controllers\Setting\RoleController;
 use App\Http\Controllers\Statement\ArchitecturalFormOnRoadwayController;
@@ -91,6 +94,7 @@ Route::group(["prefix" => "dashboard", "middleware" => "auth"],function () {
         Route::get('/', [UserDashboardController::class, 'index'])->name('user.dashboard');
         Route::resource('/employee', EmployeeController::class);
         Route::resource('/department', DepartmentController::class);
+        Route::resource('/document-type', DocumentTypeController::class);
     });
     Route::group(["prefix" => "statement", "middleware" => "checkPermission:statement management"],function () {
         Route::get('/', [StatementDashboardController::class, 'index'])->name('statement.dashboard');
@@ -141,6 +145,10 @@ Route::group(["prefix" => "dashboard", "middleware" => "auth"],function () {
         Route::resource("/road-sign",RoadSignController::class);
         Route::resource("/road-sign-condition",RoadSignConditionController::class);
         Route::resource("/road-sign-material",RoadSignMaterialController::class);
+    });
+    Route::group(["prefix" => "draw", "middleware" => "checkPermission:draw management"],function () {
+        Route::get('/', [DrawDashboardController::class, 'index'])->name('draw.dashboard');
+        Route::resource('/street-document', StreetDocumentController::class);
     });
 });
 

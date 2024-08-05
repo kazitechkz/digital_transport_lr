@@ -70,18 +70,7 @@ trait CRUD
     {
         try{
             $model = new static;
-            foreach ($model->casts as $key => $value){
-                if($value == "bool"){
-                    if(isset($fields[$key])){
-                        $fields[$key] = $request->boolean($fields[$key]);
-                    }
-                    else{
-                        $fields[$key] = false;
-                    }
-                }
-            }
-            $model->fill($fields);
-            $model->save();
+            $model->getBooleanExtractedMethod($fields, $request);
             return $model;
         }
         catch (\Exception $exception){
@@ -92,22 +81,30 @@ trait CRUD
     public function editWithBoolean($fields,$request): void
     {
         try{
-            foreach ($this->casts as $key => $value){
-                if($value == "bool"){
-                    if(isset($fields[$key])){
-                        $fields[$key] = $request->boolean($fields[$key]);
-                    }
-                    else{
-                        $fields[$key] = false;
-                    }
-                }
-            }
-            $this->fill($fields);
-            $this->save();
+            $this->getBooleanExtractedMethod($fields, $request);
         }
         catch (\Exception $exception){
             dd($exception);
         }
+    }
 
+    /**
+     * @param $fields
+     * @param $request
+     * @return void
+     */
+    public function getBooleanExtractedMethod($fields, $request): void
+    {
+        foreach ($this->casts as $key => $value) {
+            if ($value == "bool") {
+                if (isset($fields[$key])) {
+                    $fields[$key] = $request->has($key);
+                } else {
+                    $fields[$key] = false;
+                }
+            }
+        }
+        $this->fill($fields);
+        $this->save();
     }
 }

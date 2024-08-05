@@ -5,6 +5,7 @@ namespace App\Livewire\Street;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Street;
+use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class StreetTable extends DataTableComponent
 {
@@ -52,8 +53,8 @@ class StreetTable extends DataTableComponent
                 ->searchable(),
             Column::make("Наименование на казахском", "title_kk")
                 ->searchable(),
-            Column::make("Наименование на английском", "title_en")
-                ->searchable(),
+            BooleanColumn::make("Активен", "is_active")
+                ->sortable(),
             Column::make("Создан", "created_at")
                 ->sortable(),
             Column::make("Обновлен", "updated_at")

@@ -41,9 +41,7 @@ class StreetController extends Controller
     public function store(StreetCreateRequest $request)
     {
         try {
-            $input = $request->all();
-            $input["is_active"] = $request->boolean("is_active");
-            Street::add($input);
+            Street::addWithBoolean($request->all(), $request);
             return redirect()->back();
         }
         catch (\Exception $exception){
@@ -83,14 +81,9 @@ class StreetController extends Controller
     public function update(StreetUpdateRequest $request, string $id)
     {
         try {
-            $street = Street::find($id);
-            if($street){
-                $input["is_active"] = $request->boolean("is_active");
-                $street->edit($input);
-                return redirect()->route("street.index");
-            }
-            toastr()->warning("Не найдено");
-            return redirect()->back();
+            $street = Street::findOrFail($id);
+            $street->editWithBoolean($request->all(), $request);
+            return redirect()->route("street.index");
         }
         catch (\Exception $exception){
             return redirect()->back();

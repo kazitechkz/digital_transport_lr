@@ -51,6 +51,11 @@ class SidebarRoutes
                             "permission" => "permission read",
                         ]
                     ]
+                ],
+                [
+                    "name" => "Типы документов",
+                    "link" => "document-type.index",
+                    "permission" => "DocumentType read"
                 ]
             ]
         ];
@@ -299,8 +304,25 @@ class SidebarRoutes
             ]
         ];
     }
+    public static function drawing(): array
+    {
+        return [
+            "title" => "dashboard/draw*",
+            "name" => "Чертежи",
+            "link" => "draw.dashboard",
+            "icon" => "fa-solid fa-compass-drafting",
+            "permission" => "draw management",
+            "routes" => [
+                [
+                    "name" => "Документы",
+                    "link" => "street-document.index",
+                    "permission" => "StreetDocument read"
+                ]
+            ]
+        ];
+    }
     public static function all(): array
     {
-        return [self::user(), self::statement(), self::setting(), self::referenceBook()];
+        return [self::user(), self::statement(), self::setting(), self::referenceBook(), self::drawing()];
     }
 }
