@@ -63,7 +63,7 @@ class StreetDocumentController extends Controller
     {
         try {
             $model = StreetDocument::with('file', 'document_type')->findOrFail($id);
-            $path = 'https://wicked-carpets-notice.loca.lt' . $model->file->getFile('url');
+            $path = URL::to('/') . $model->file->getFile('url');
             if ($model->document_type->extension == 'dwg') {
                 return view('dashboard.draw.street-document.dwg', compact('path'));
             }

@@ -10,7 +10,7 @@
     <meta name="author" content="themexriver">
 
     <!-- Page Title -->
-    <title> Miex- One Page Multi-Purpose Template </title>
+    <title> Digital Transport </title>
 
     <!-- Icon fonts -->
     <link href="lp/css/font-awesome.min.css" rel="stylesheet">
