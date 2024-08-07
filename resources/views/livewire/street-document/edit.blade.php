@@ -34,7 +34,6 @@
             wire:model.blur="file"
             label="Чертеж"
             hint="Only DWG"
-            accept=".dwg"
         />
     </div>
     <input type="hidden" wire:model="file_id" name="file_id">

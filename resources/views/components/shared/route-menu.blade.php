@@ -2,7 +2,8 @@
 <div class="sidebar-panel">
     <div class="flex h-full grow flex-col bg-white pl-[var(--main-sidebar-width)] dark:bg-navy-750">
         <!-- Sidebar Panel Header -->
-        <div class="flex h-18 w-full items-center justify-between pl-4 pr-1">
+        <div class="flex h-18 w-full items-center justify-start pl-4 pr-1">
+            <i class="{{$icon}} mx-3"></i>
             <p class="text-base tracking-wider text-slate-800 dark:text-navy-100">
                 {{$name}}
             </p>

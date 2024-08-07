@@ -62,9 +62,13 @@ class StreetDocumentController extends Controller
     public function show(string $id)
     {
         try {
-            $model = StreetDocument::with('file')->findOrFail($id);
-            $path = URL::to('/') . $model->file->getFile('url');
-            return view('dashboard.draw.street-document.show', compact('path'));
+            $model = StreetDocument::with('file', 'document_type')->findOrFail($id);
+            $path = 'https://wicked-carpets-notice.loca.lt' . $model->file->getFile('url');
+            if ($model->document_type->extension == 'dwg') {
+                return view('dashboard.draw.street-document.dwg', compact('path'));
+            }
+            return view('dashboard.draw.street-document.google', compact('path'));
+
         } catch (\Exception $exception) {
             toastr()->error($exception->getMessage(),"Error");
             return redirect()->back();

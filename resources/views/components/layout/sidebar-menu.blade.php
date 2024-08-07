@@ -320,7 +320,7 @@
     </div>
     @foreach($routes as $route)
         @if(request()->is($route['title']))
-            <x-shared.route-menu :name="$route['name']" :routes="$route['routes']" :permission="$route['permission']" />
+            <x-shared.route-menu :icon="$route['icon']" :name="$route['name']" :routes="$route['routes']" :permission="$route['permission']" />
         @endif
     @endforeach
 </div>

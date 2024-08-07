@@ -13,6 +13,7 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
+        Permission::create(['name' => 'dashboard management']);
         Permission::create(['name' => 'user management']);
         Permission::create(['name' => 'setting management']);
         Permission::create(['name' => 'statement management']);

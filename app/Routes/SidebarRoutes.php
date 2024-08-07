@@ -4,6 +4,23 @@ namespace App\Routes;
 
 class SidebarRoutes
 {
+    public static function dashboard(): array
+    {
+        return [
+            "title" => "dashboard",
+            "name" => "Kanban Board",
+            "link" => "dashboard.index",
+            "icon" => "fa-solid fa-chart-pie",
+            "permission" => "dashboard management",
+            "routes" => [
+                [
+                    "name" => "Статистика",
+                    "link" => "dashboard.index",
+                    "permission" => "dashboard management"
+                ]
+            ]
+        ];
+    }
     public static function user(): array
     {
         return [
@@ -323,6 +340,6 @@ class SidebarRoutes
     }
     public static function all(): array
     {
-        return [self::user(), self::statement(), self::setting(), self::referenceBook(), self::drawing()];
+        return [self::dashboard(), self::user(), self::statement(), self::referenceBook(), self::drawing(), self::setting()];
     }
 }

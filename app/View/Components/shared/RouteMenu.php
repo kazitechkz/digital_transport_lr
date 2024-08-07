@@ -10,16 +10,18 @@ use Illuminate\View\Component;
 class RouteMenu extends Component
 {
     public string $name;
+    public string $icon;
     public string $permission;
     public array $routes;
     /**
      * Create a new component instance.
      */
-    public function __construct(string $name, string $permission, array $routes)
+    public function __construct(string $name, string $icon, string $permission, array $routes)
     {
         $this->name = $name;
         $this->routes = $routes;
         $this->permission = $permission;
+        $this->icon = $icon;
     }
 
     /**

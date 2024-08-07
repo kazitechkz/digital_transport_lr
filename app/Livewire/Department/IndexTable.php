@@ -5,6 +5,7 @@ namespace App\Livewire\Department;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Department;
+use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class IndexTable extends DataTableComponent
 {
@@ -43,19 +44,14 @@ class IndexTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Id", "id")
+            Column::make("ID", "id")
                 ->sortable(),
-            Column::make("Title kk", "title_kk")
+            Column::make("Наименование", "title_ru")
                 ->searchable()
                 ->sortable(),
-            Column::make("Title ru", "title_ru")
-                ->searchable()
+            BooleanColumn::make("Статус", "status")
                 ->sortable(),
-            Column::make("Status", "status")
-                ->sortable(),
-            Column::make("Created at", "created_at")
-                ->sortable(),
-            Column::make("Updated at", "updated_at")
+            Column::make("Дата создания", "created_at")
                 ->sortable(),
         ];
     }
