@@ -53,8 +53,8 @@ class IndexTable extends DataTableComponent
                 ->sortable(),
             Column::make("Улица", "street.title_ru")
                 ->sortable(),
-            Column::make("Описание", "description")
-                ->sortable(),
+//            Column::make("Описание", "description")
+//                ->sortable(),
             Column::make("Дата создания", "created_at")
                 ->sortable(),
             ButtonGroupColumn::make('Действие')

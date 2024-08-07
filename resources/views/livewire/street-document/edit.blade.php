@@ -33,7 +33,7 @@
         <x-file
             wire:model.blur="file"
             label="Чертеж"
-            hint="Only DWG"
+
         />
     </div>
     <input type="hidden" wire:model="file_id" name="file_id">
