@@ -4,7 +4,7 @@
     <section class="main-section" style='background-image: url("{{asset('lp/images/lp_main_bg.png')}}")'>
         <div class="container ">
             <h1 class="text-center">Цифровая паспортизация <br> дорог Астаны</h1>
-            <p class="text-center">ПРОСМАТРИВАЙТЕ ДОРОГИ И УЧАСТКИ</p>
+            <p class="text-center" style="color: white">ПРОСМАТРИВАЙТЕ ДОРОГИ И УЧАСТКИ</p>
             <form>
                 <div class="input-group" style="width: 50%; margin-left: auto; margin-right: auto">
                     <input type="text" class="form-control" placeholder="Улица, участок">
