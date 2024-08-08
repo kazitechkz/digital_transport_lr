@@ -68,7 +68,6 @@ class StreetDocumentController extends Controller
                 return view('dashboard.draw.street-document.dwg', compact('path'));
             }
             return view('dashboard.draw.street-document.google', compact('path'));
-
         } catch (\Exception $exception) {
             toastr()->error($exception->getMessage(),"Error");
             return redirect()->back();

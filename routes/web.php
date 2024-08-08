@@ -71,8 +71,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('main');
+Route::get('/map', function () {
+    return view('map');
+})->name('map');
 
 Route::group(["prefix" => "auth"],function (){
    Route::get("login",[AuthController::class,"login"])->name("login");

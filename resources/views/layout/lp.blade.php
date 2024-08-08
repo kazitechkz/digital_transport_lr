@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/">
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +31,7 @@
 
     <!-- Custom styles for this template -->
     <link href="lp/css/style.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{asset('lp/css/my.css')}}">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -56,8 +57,8 @@
     <!-- Start header -->
     <header id="header" class="site-header header-style-1">
         <nav class="navigation navbar navbar-default">
-            <div class="site-logo">
-                <a href="#"><img src="lp/images/logo.jpg" alt></a>
+            <div class="site-logo" style="margin-left: 20px">
+                <a href="{{route('main')}}"><img src="{{asset('assets/images/logo-dark.png')}}" width="100"></a>
             </div>
             <div class="container">
                 <div class="navbar-header">
@@ -74,7 +75,7 @@
                         <li><a href="#home">Главная</a></li>
                         <li><a href="#about">О Нас</a></li>
                         <li><a href="#services">Сервисы</a></li>
-                        <li><a href="#portfolio">Наши работы</a></li>
+                        <li><a href="#portfolio">Этапы</a></li>
                         <li><a href="#contact">Контакты</a></li>
                         <li><a href="{{route('login')}}">Войти</a></li>
                     </ul>
@@ -94,7 +95,7 @@
                     <div class="col col-md-4 col-sm-6">
                         <div class="widget about-widget">
                             <div class="footer-logo">
-                                <img src="lp/images/footer-logo.png" alt>
+                                <img src="{{asset('assets/images/logo-white.png')}}" width="100">
                             </div>
                             <p>Паспортизация автомобильных и городских дорог осуществляется для получения точных данных о наличии и состоянии дорог, их протяженности, технических характеристиках, инженерном оборудовании, обустройстве и условиях эксплуатации.</p>
                         </div>
@@ -103,9 +104,9 @@
                         <div class="widget contact-widget">
                             <h3>Контакты</h3>
                             <ul class="contact-info">
-                                <li><i class="fa fa-phone"></i> +123 (4567) 890</li>
-                                <li><i class="fa fa-envelope"></i> info@agency.com</li>
-                                <li><i class="fa fa-home"></i> 380 St Kilda Road, Sydeny VIC 3004, Australia</li>
+                                <li><i class="fa fa-phone"></i> +7 707 500 1710</li>
+                                <li><i class="fa fa-envelope"></i> kazitech2023@gmail.com</li>
+                                <li><i class="fa fa-home"></i> пр-т. Мангилик Ел. 55/8, Астана 020000</li>
                             </ul>
                         </div>
                     </div>
@@ -117,7 +118,7 @@
                                 <li><a href="#home">Главная</a></li>
                                 <li><a href="#about">О Нас</a></li>
                                 <li><a href="#services">Сервисы</a></li>
-                                <li><a href="#portfolio">Наши работы</a></li>
+                                <li><a href="#portfolio">Этапы</a></li>
                                 <li><a href="#contact">Контакты</a></li>
                             </ul>
                         </div>
