@@ -9,7 +9,7 @@
                 <div class="input-group" style="width: 50%; margin-left: auto; margin-right: auto">
                     <input type="text" class="form-control" placeholder="Улица, участок">
                     <span class="input-group-btn">
-                       <button class="btn btn-default" type="button">поиск</button>
+                       <a href="{{route('map')}}" target="_blank" class="btn btn-default" type="button">поиск</a>
                     </span>
                 </div>
             </form>
